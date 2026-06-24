@@ -105,6 +105,13 @@ def main():
     articles.sort(key=lambda a: a["date"])
     new = [a for a in articles if a["slug"] not in have][:MAX_PER_RUN]
 
+    # Modo para la rutina de Claude: vuelca los artículos nuevos EN CRUDO (título
+    # y excerpt completos) como JSON, para que Claude escriba títulos/ganchos de
+    # calidad. No escribe nada.
+    if "--list-new-json" in sys.argv:
+        print(json.dumps({"next_index": len(blog), "new": new}, ensure_ascii=False, indent=1))
+        return
+
     if not new:
         print("Sin artículos nuevos — la rotación de blog ya está al día "
               f"({len(blog)} tarjetas).")
