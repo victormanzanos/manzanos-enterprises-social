@@ -291,6 +291,27 @@ BLOG = [
 # Base URL of the public site (used to build the article link in captions).
 SITE = "https://www.manzanosenterprises.com"
 
+# ──────────────────────────────────────────────────────────────────────────
+# LIVE SOURCE OF TRUTH: quotes.json / blog.json (grow over time)
+# The literals above are the seed/fallback. The refresh jobs APPEND new entries
+# to these JSON files — never edit the Python. If a JSON file is missing or
+# unreadable, we fall back to the embedded seed so the system never breaks.
+# ──────────────────────────────────────────────────────────────────────────
+import json as _json, os as _os
+_DIR = _os.path.dirname(_os.path.abspath(__file__))
+def _load(name, fallback):
+    p = _os.path.join(_DIR, name)
+    if _os.path.exists(p):
+        try:
+            data = _json.load(open(p, encoding="utf-8"))
+            if data:
+                return data
+        except Exception:
+            pass
+    return fallback
+QUOTES = [tuple(q) for q in _load("quotes.json", QUOTES)]
+BLOG = _load("blog.json", BLOG)
+
 
 def quote_count():
     return len(QUOTES)

@@ -1,0 +1,450 @@
+[
+ {
+  "slug": "boring-work-that-wins-management-systems-kpis-compound-over-decades",
+  "image": "mhsa.jpg",
+  "title_es": "El trabajo aburrido que gana",
+  "title_en": "The Boring Work That Wins",
+  "hook_es": "A la mayoría de las empresas no las mata un competidor: las mata la erosión lenta del trabajo poco glamuroso. Así un sistema de gestión construye una empresa que compone durante décadas.",
+  "hook_en": "Most companies are not killed by a competitor — they are killed by the slow erosion of the unglamorous work. How a management system compounds across eight industries."
+ },
+ {
+  "slug": "the-deals-you-dont-do-walk-away-discipline-smart-acquisitions",
+  "image": "palacio-exterior.jpg",
+  "title_es": "Los acuerdos que no haces",
+  "title_en": "The Deals You Don't Do",
+  "hook_es": "Las adquisiciones que construyeron nuestro grupo importan menos que las que rechazamos. La disciplina de retirarse que protege a una empresa diversificada.",
+  "hook_en": "The acquisitions that built our group matter less than the ones we refused. The walk-away discipline that protects a diversified company."
+ },
+ {
+  "slug": "ai-heritage-businesses-adopt-technology-without-losing-soul",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "IA en una empresa de 130 años",
+  "title_en": "AI in a 130-Year-Old Company",
+  "hook_es": "Las empresas con historia fracasan con la tecnología de dos formas: no adoptan nada, o lo adoptan todo. Conservar el oficio, automatizar la fricción.",
+  "hook_en": "Heritage businesses fail at technology two ways: adopt nothing, or adopt everything. Keep the craft, automate the friction."
+ },
+ {
+  "slug": "choosing-the-right-distributor-enter-foreign-market-without-losing-brand",
+  "image": "miami.jpg",
+  "title_es": "Elegir al distribuidor adecuado",
+  "title_en": "Choosing the Right Distributor",
+  "hook_es": "Cómo entrar en un mercado extranjero sin entregar tu marca. Elegir mal a un distribuidor puede enterrar una marca en un almacén durante años.",
+  "hook_en": "How to enter a foreign market without handing over your brand. The wrong distributor can bury a brand in a warehouse for years."
+ },
+ {
+  "slug": "heritage-is-a-moat-you-cannot-buy-brand-competitive-advantage",
+  "image": "legacy-v2.jpg",
+  "title_es": "El patrimonio es un foso que no se puede comprar",
+  "title_en": "Heritage Is a Moat You Cannot Buy",
+  "hook_es": "Un competidor puede copiar tu producto en un trimestre. Lo que nadie puede copiar es el tiempo que costó ganarse la confianza.",
+  "hook_en": "A competitor can copy your product in a quarter. What no one can copy is the time it took to earn trust."
+ },
+ {
+  "slug": "when-to-let-a-leader-go-decision-founders-delay-too-long",
+  "image": "palacio-de-manzanos.jpg",
+  "title_es": "Cuándo dejar ir a un líder",
+  "title_en": "When to Let a Leader Go",
+  "hook_es": "La decisión que los fundadores retrasan demasiado — y lo que cuesta. La decisión de liderazgo más difícil no es a quién contratar.",
+  "hook_en": "The decision founders delay too long — and what it costs. The hardest leadership call is not who to hire."
+ },
+ {
+  "slug": "centralize-or-decentralize-operating-model-multi-business-owners",
+  "image": "hero-interior.jpg",
+  "title_es": "¿Centralizar o descentralizar?",
+  "title_en": "Centralize or Decentralize?",
+  "hook_es": "Qué funciones pertenecen al centro y cuáles al borde. El marco para dirigir ocho negocios muy distintos sin asfixiar a ninguno.",
+  "hook_en": "Which functions belong at the center, which at the edge. The framework for running eight businesses without strangling any."
+ },
+ {
+  "slug": "the-long-middle-why-most-businesses-quit-in-the-years-nobody-writes-about",
+  "image": "legacy.jpg",
+  "title_es": "El largo medio",
+  "title_en": "The Long Middle",
+  "hook_es": "La mayoría de los negocios no mueren al principio: abandonan en los años de los que nadie escribe. La persistencia es una estrategia.",
+  "hook_en": "Most businesses don't die at the start — they quit in the years nobody writes about. Persistence is a strategy."
+ },
+ {
+  "slug": "where-every-euro-goes-capital-allocation-discipline-that-compounds",
+  "image": "miami.jpg",
+  "title_es": "Adónde va cada euro",
+  "title_en": "Where Every Euro Goes",
+  "hook_es": "La disciplina de asignación de capital que separa a los grupos que componen de los que se estancan. Reinvertir, adquirir, amortizar o repartir.",
+  "hook_en": "The capital allocation discipline that separates groups that compound from groups that stall."
+ },
+ {
+  "slug": "patient-capital-why-thinking-in-decades-beats-thinking-in-quarters",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Capital paciente",
+  "title_en": "Patient Capital",
+  "hook_es": "Por qué pensar en décadas vence a pensar en trimestres. Los mejores rendimientos pertenecen a quien está dispuesto a esperar.",
+  "hook_en": "Why thinking in decades beats thinking in quarters. The best returns belong to those willing to wait."
+ },
+ {
+  "slug": "succession-is-a-system-family-businesses-beat-third-generation-curse",
+  "image": "legacy-v3.jpg",
+  "title_es": "La sucesión es un sistema, no un acontecimiento",
+  "title_en": "Succession Is a System, Not an Event",
+  "hook_es": "Cómo las empresas familiares vencen la maldición de la tercera generación. Un sistema construido durante décadas, no un relevo dramático.",
+  "hook_en": "How family businesses beat the third-generation curse — a system built over decades, not a dramatic handover."
+ },
+ {
+  "slug": "culture-that-travels-keeping-company-values-across-countries-and-industries",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Una cultura que viaja",
+  "title_en": "Culture That Travels",
+  "hook_es": "Un grupo en ocho industrias no se mantiene unido con un manual de procesos. Se mantiene unido con la cultura.",
+  "hook_en": "A group across eight industries isn't held together by a process manual. It's held together by culture."
+ },
+ {
+  "slug": "pricing-power-build-business-raise-prices-without-losing-customers",
+  "image": "palacio-detalle.jpg",
+  "title_es": "Poder de precio",
+  "title_en": "Pricing Power",
+  "hook_es": "Cómo construir un negocio que puede subir precios sin perder clientes. La característica financiera más valiosa que puede tener un negocio.",
+  "hook_en": "How to build a business that can raise prices without losing customers — the most valuable financial trait a business can own."
+ },
+ {
+  "slug": "divestiture-decision-when-to-sell-spin-off-or-close-a-business",
+  "image": "legacy-v3.jpg",
+  "title_es": "La decisión de desinvertir",
+  "title_en": "The Divestiture Decision",
+  "hook_es": "Saber qué dejar es lo que separa a los operadores que componen capital de los que lo desangran. Cuándo vender, escindir o cerrar.",
+  "hook_en": "Knowing what to exit separates operators who compound capital from those who bleed it. When to sell, spin off, or close."
+ },
+ {
+  "slug": "geographic-expansion-sequencing-order-of-markets-matters-more-than-markets",
+  "image": "hero-v2.jpg",
+  "title_es": "Secuenciación de la expansión geográfica",
+  "title_en": "Geographic Expansion Sequencing",
+  "hook_es": "Por qué el orden en que entras a los mercados importa más que los mercados mismos. Qué país va primero, cuál segundo y cuáles esperan.",
+  "hook_en": "Why the order of markets you enter matters more than the markets themselves."
+ },
+ {
+  "slug": "acquisition-engine-repeatable-ma-capability-founder-led-companies",
+  "image": "mhsa-v2.jpg",
+  "title_es": "El motor de adquisiciones",
+  "title_en": "The Acquisition Engine",
+  "hook_es": "Las empresas que componen riqueza mediante adquisiciones no apuestan: construyen motores. Una capacidad repetible de M&A.",
+  "hook_en": "Companies that compound wealth through acquisitions don't bet — they build engines. A repeatable M&A capability."
+ },
+ {
+  "slug": "the-manzanos-way-vision-discipline-long-term-value",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "El Metodo Manzanos",
+  "title_en": "The Manzanos Way",
+  "hook_es": "Despues de 136 anos y cinco generaciones, estos son los principios emprendedores que guian cada decision en Manzanos Enterprises.",
+  "hook_en": "After 136 years and five generations, these are the entrepreneurial principles that guide every decision at Manzanos Enterprises."
+ },
+ {
+  "slug": "next-generation-entrepreneurs-global-companies-day-one",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Por Que la Proxima Generacion…",
+  "title_en": "Why the Next Generation of Entrepreneurs…",
+  "hook_es": "Las barreras para construir negocios globales nunca han sido tan bajas.",
+  "hook_en": "The barriers to building global businesses have never been lower."
+ },
+ {
+  "slug": "15-lessons-learned-building-businesses-15-years",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "15 Lecciones Aprendidas Construyendo…",
+  "title_en": "15 Lessons Learned From Building Businesses…",
+  "hook_es": "Despues de 15 anos construyendo, adquiriendo y haciendo crecer negocios, estas son las lecciones que han dado forma a nuestra filosofia emprendedora.",
+  "hook_en": "After 15 years of building, acquiring, and growing businesses across multiple industries and continents, these are the lessons that have shaped our…"
+ },
+ {
+  "slug": "strategic-framework-growing-multiple-businesses",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "El Marco Estrategico que los Emprendedores…",
+  "title_en": "The Strategic Framework Entrepreneurs Should…",
+  "hook_es": "Gestionar un portfolio de negocios requiere un enfoque fundamentalmente diferente a dirigir una sola empresa.",
+  "hook_en": "Managing a portfolio of businesses requires a fundamentally different approach than running a single company."
+ },
+ {
+  "slug": "how-to-integrate-inspire-teams-after-acquiring-company",
+  "image": "palacio-lifestyle.jpg",
+  "title_es": "Como Integrar e Inspirar Equipos Despues…",
+  "title_en": "How to Integrate and Inspire Teams After…",
+  "hook_es": "Los primeros 100 dias despues de una adquisicion determinan si la operacion crea valor o lo destruye.",
+  "hook_en": "The first 100 days after an acquisition determine whether the deal creates value or destroys it."
+ },
+ {
+  "slug": "why-long-term-thinking-wins-in-business",
+  "image": "palacio-exterior.jpg",
+  "title_es": "Por Que el Pensamiento a Largo Plazo Gana…",
+  "title_en": "Why Long-Term Thinking Wins in Business",
+  "hook_es": "En un mundo obsesionado con resultados trimestrales, los emprendedores que piensan en decadas construyen las empresas que duran generaciones.",
+  "hook_en": "In a world obsessed with quarterly results, the entrepreneurs who think in decades build the companies that last generations."
+ },
+ {
+  "slug": "managing-business-vs-building-entrepreneurial-organization",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "La Diferencia Entre Gestionar un Negocio…",
+  "title_en": "The Difference Between Managing a Business…",
+  "hook_es": "El cambio mas importante que un emprendedor puede hacer es pasar de gestionar operaciones diarias a construir sistemas, lideres y una cultura que…",
+  "hook_en": "The most important shift an entrepreneur can make is from managing daily operations to building systems, leaders, and a culture that scales beyond…"
+ },
+ {
+  "slug": "building-businesses-across-borders-europe-to-usa",
+  "image": "miami.jpg",
+  "title_es": "Construyendo Negocios Mas Alla…",
+  "title_en": "Building Businesses Across Borders",
+  "hook_es": "La expansion internacional es uno de los viajes mas gratificantes y desafiantes que un emprendedor puede emprender.",
+  "hook_en": "International expansion is one of the most rewarding and challenging journeys an entrepreneur can undertake."
+ },
+ {
+  "slug": "buy-and-grow-companies-instead-of-starting-from-scratch",
+  "image": "hero-clean.jpg",
+  "title_es": "Como los Emprendedores Pueden Comprar…",
+  "title_en": "How Entrepreneurs Can Buy and Grow Companies…",
+  "hook_es": "El emprendimiento por adquisicion es una de las estrategias mas poderosas e infrautilizadas para construir riqueza y crear valor.",
+  "hook_en": "Acquisition entrepreneurship is one of the most powerful and underutilized strategies for building wealth and creating value. Here is how it works."
+ },
+ {
+  "slug": "from-family-business-to-global-growth",
+  "image": "legacy-v3.jpg",
+  "title_es": "De Negocio Familiar a Crecimiento Global",
+  "title_en": "From Family Business to Global Growth",
+  "hook_es": "Como un negocio familiar de quinta generacion se transformo de una pequena operacion regional en un holding internacional diversificado generando mas…",
+  "hook_en": "How a fifth-generation family business transformed from a small regional operation into a diversified international holding company generating over…"
+ },
+ {
+  "slug": "capital-allocation-most-important-skill-entrepreneurs",
+  "image": "legacy-v3.jpg",
+  "title_es": "Asignacion de Capital",
+  "title_en": "Capital Allocation",
+  "hook_es": "Como despliegas el capital es la decision mas importante que tomaras como empresario.",
+  "hook_en": "How you deploy capital is the single most consequential decision you will make as a business owner."
+ },
+ {
+  "slug": "brand-building-how-to-create-a-brand-that-endures",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Construccion de Marca",
+  "title_en": "Brand Building",
+  "hook_es": "Una marca poderosa no se construye en una campana — se construye a lo largo de decadas mediante accion consistente, narrativa autentica y un…",
+  "hook_en": "A powerful brand is not built in a campaign — it is built over decades through consistent action, authentic storytelling, and an unrelenting…"
+ },
+ {
+  "slug": "operational-excellence-hidden-engine-durable-business",
+  "image": "palacio-exterior.jpg",
+  "title_es": "Excelencia Operacional",
+  "title_en": "Operational Excellence",
+  "hook_es": "La estrategia acapara los titulares. Las operaciones ganan la guerra.",
+  "hook_en": "Strategy gets the headlines. Operations win the war. After building and managing businesses across five industries, I can tell you that operational…"
+ },
+ {
+  "slug": "innovation-traditional-industries-heritage-companies",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Innovacion en Industrias Tradicionales",
+  "title_en": "Innovation in Traditional Industries",
+  "hook_es": "Las empresas mas antiguas del mundo no son supervivientes — son innovadoras.",
+  "hook_en": "The oldest companies in the world are not survivors — they are innovators."
+ },
+ {
+  "slug": "talent-strategy-build-leadership-team-scales-without-you",
+  "image": "hero-v2.jpg",
+  "title_es": "Estrategia de Talento",
+  "title_en": "Talent Strategy",
+  "hook_es": "El cuello de botella mas peligroso en cualquier negocio en crecimiento es el fundador.",
+  "hook_en": "The most dangerous bottleneck in any growing business is the founder."
+ },
+ {
+  "slug": "negotiation-playbook-entrepreneurs-close-complex-deals-across-borders",
+  "image": "miami.jpg",
+  "title_es": "El Manual de Negociacion para Emprendedores",
+  "title_en": "The Negotiation Playbook for Entrepreneurs",
+  "hook_es": "La negociacion es una de las habilidades mas importantes que puede desarrollar un emprendedor.",
+  "hook_en": "Negotiation is one of the most consequential skills an entrepreneur can develop."
+ },
+ {
+  "slug": "organic-vs-inorganic-growth-build-buy-or-partner",
+  "image": "legacy-v2.jpg",
+  "title_es": "Crecimiento Organico vs. Inorganico",
+  "title_en": "Organic vs. Inorganic Growth",
+  "hook_es": "Toda empresa que supera su primera decada enfrenta la misma decision estrategica: crecer organicamente, adquirir o asociarse.",
+  "hook_en": "Every company that survives its first decade confronts the same strategic decision: grow organically, acquire, or partner? Here is the framework for…"
+ },
+ {
+  "slug": "how-to-professionalize-a-family-business-without-losing-its-soul",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Cómo Profesionalizar una Empresa Familiar…",
+  "title_en": "How to Professionalize a Family Business…",
+  "hook_es": "La mayoría de las empresas familiares fracasan entre generaciones no por mala estrategia, sino porque confunden los métodos del fundador con sus…",
+  "hook_en": "Most family businesses fail between generations not because of bad strategy, but because they confuse the founder's methods with the founder's…"
+ },
+ {
+  "slug": "how-to-lead-through-a-business-crisis-survival-framework",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Cómo Liderar Durante una Crisis Empresarial",
+  "title_en": "How to Lead Through a Business Crisis",
+  "hook_es": "Todo emprendedor enfrenta inevitablemente un momento en el que la historia que se ha contado sobre su negocio deja de ser verdad.",
+  "hook_en": "Every entrepreneur eventually faces a moment when the story they have been telling themselves about their business stops being true."
+ },
+ {
+  "slug": "how-to-select-international-distributors-global-sales-networks",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Cómo Seleccionar Distribuidores…",
+  "title_en": "How to Select International Distributors",
+  "hook_es": "Elegir al distribuidor equivocado puede costarte una década de progreso en el mercado.",
+  "hook_en": "Choosing the wrong distributor can cost you a decade of market progress."
+ },
+ {
+  "slug": "due-diligence-discipline-what-buyers-miss-before-they-sign",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "La Disciplina de la Due Diligence",
+  "title_en": "The Due Diligence Discipline",
+  "hook_es": "La mayoría de las adquisiciones fracasan no porque el precio fuera incorrecto, sino porque el comprador no comprendió realmente lo que estaba…",
+  "hook_en": "Most acquisitions fail not because the price was wrong, but because the buyer did not understand what they were actually purchasing."
+ },
+ {
+  "slug": "vertical-integration-strategy-when-owning-whole-chain-creates-advantage",
+  "image": "legacy.jpg",
+  "title_es": "El Caso de la Integración Vertical",
+  "title_en": "The Case for Vertical Integration",
+  "hook_es": "La integración vertical es uno de los conceptos peor entendidos de la estrategia moderna — descartado como anticuado por algunos, sobreaplicado por…",
+  "hook_en": "Vertical integration is one of the most misunderstood concepts in modern strategy — dismissed as old-fashioned by some, over-applied by others."
+ },
+ {
+  "slug": "ceo-calendar-where-founders-spend-time-multiple-businesses",
+  "image": "hero-interior.jpg",
+  "title_es": "La Agenda del CEO",
+  "title_en": "The CEO's Calendar",
+  "hook_es": "La auditoría más honesta que un fundador puede hacer es imprimir la agenda del último trimestre y preguntarse: ¿este tiempo coincidió con la…",
+  "hook_en": "The most honest audit a founder can run is to print last quarter's calendar and ask: did this time match the strategy? In a diversified group, time…"
+ },
+ {
+  "slug": "pricing-power-why-strongest-businesses-refuse-to-compete-on-price",
+  "image": "palacio-detalle.jpg",
+  "title_es": "Poder de Precio",
+  "title_en": "Pricing Power",
+  "hook_es": "Hace algunos años, en un mercado débil para el vino premium, un importador nos pidió bajar el precio un 8% para 'igualar a la categoría'.",
+  "hook_en": "Some years ago, during a soft market for premium wine, an importer asked us to drop our price by 8% to 'match the category.' I said no — and the…"
+ },
+ {
+  "slug": "compounding-mindset-small-decisions-generational-wealth-business",
+  "image": "legacy-v2.jpg",
+  "title_es": "La Mentalidad del Interés Compuesto",
+  "title_en": "The Compounding Mindset",
+  "hook_es": "Cuando se fundó el negocio familiar en 1890, nadie estaba pensando en 2026. Pensaban en la próxima cosecha.",
+  "hook_en": "When my family's business was founded in 1890, no one was thinking about 2026. They were thinking about the next harvest."
+ },
+ {
+  "slug": "firing-senior-executive-hardest-decision-every-founder-faces",
+  "image": "hero-clean.jpg",
+  "title_es": "Despedir a un Ejecutivo Senior",
+  "title_en": "Firing a Senior Executive",
+  "hook_es": "El error más caro que he visto cometer a los fundadores — incluyendo, más de una vez, en nuestro propio grupo — no es la contratación equivocada.",
+  "hook_en": "The most expensive mistake I have watched founders make — including, more than once, inside our own group — is not the wrong hire."
+ },
+ {
+  "slug": "diversification-decision-when-entrepreneurs-should-enter-new-industry",
+  "image": "palacio-espacios.jpg",
+  "title_es": "La Decisión de Diversificar",
+  "title_en": "The Diversification Decision",
+  "hook_es": "La diversificación es el movimiento estratégico más romantizado de los negocios y el más fiablemente destructivo cuando se hace por las razones…",
+  "hook_en": "Diversification is the most romanticized strategic move in business and the most reliably destructive when done for the wrong reasons."
+ },
+ {
+  "slug": "next-generation-family-business-succession-handover",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "La Pregunta de la Próxima Generación",
+  "title_en": "The Next-Generation Question",
+  "hook_es": "Aproximadamente el setenta por ciento de las empresas familiares no sobrevive a la segunda generación, y el noventa por ciento no sobrevive a la…",
+  "hook_en": "Roughly seventy percent of family businesses do not survive the second generation, and ninety percent do not survive the third."
+ },
+ {
+  "slug": "debt-decision-finance-growth-without-risking-business",
+  "image": "mhsa.jpg",
+  "title_es": "La Decision de la Deuda",
+  "title_en": "The Debt Decision",
+  "hook_es": "Como financiar el crecimiento sin poner en riesgo el negocio: las cuatro pruebas que toda decision de endeudamiento debe pasar, la diferencia entre…",
+  "hook_en": "How to finance growth without risking the business: the four tests every borrowing decision must pass, the difference between productive and…"
+ },
+ {
+  "slug": "building-a-board-that-actually-helps-governance-multi-business-owners",
+  "image": "palacio-hero.jpg",
+  "title_es": "Construir un Consejo Que Realmente Ayude",
+  "title_en": "Building a Board That Actually Helps",
+  "hook_es": "La mayoria de las empresas lideradas por su fundador tratan a su consejo como un formalismo — un ritual trimestral para satisfacer abogados y…",
+  "hook_en": "Most founder-led companies treat their board as a formality — a quarterly ritual to satisfy lawyers and inheritors."
+ },
+ {
+  "slug": "distributor-or-direct-international-expansion-strategy",
+  "image": "miami.jpg",
+  "title_es": "Distribuidor o Directo",
+  "title_en": "Distributor or Direct",
+  "hook_es": "El mayor error de los exportadores es tratar la decision entre distribuidor y operacion directa como un problema financiero. No lo es.",
+  "hook_en": "The biggest mistake exporters make is treating the choice between a distributor and direct operations as a financial question. It is not."
+ },
+ {
+  "slug": "reinvestment-vs-dividend-discipline-family-entrepreneurs-allocate-profits",
+  "image": "legacy-v3.jpg",
+  "title_es": "Reinversion frente a Dividendos",
+  "title_en": "Reinvestment vs. Dividend Discipline",
+  "hook_es": "La decision de asignacion de capital mas importante en cualquier empresa familiar no es como gastar el dinero, sino como repartir los beneficios…",
+  "hook_en": "The most consequential capital allocation question in any family business is not how to spend money — it is how to split profits between growing the…"
+ },
+ {
+  "slug": "first-100-days-after-acquisition-how-new-owners-create-value",
+  "image": "palacio-de-manzanos.jpg",
+  "title_es": "Los Primeros 100 Dias Tras una Adquisicion",
+  "title_en": "The First 100 Days After an Acquisition",
+  "hook_es": "La mayoria de las adquisiciones destruyen valor no porque el precio estuviera mal, sino porque los primeros 100 dias se gestionaron mal.",
+  "hook_en": "Most acquisitions destroy value not because the price was wrong, but because the first 100 days were managed badly."
+ },
+ {
+  "slug": "customer-concentration-risk-why-no-account-should-kill-your-business",
+  "image": "hero-v2.jpg",
+  "title_es": "Riesgo de Concentracion de Clientes",
+  "title_en": "Customer Concentration Risk",
+  "hook_es": "La mayoria de las empresas que quiebran no caen por malos mercados, malos productos o mala gestion.",
+  "hook_en": "Most failed businesses do not collapse because of bad markets, bad products, or bad management."
+ },
+ {
+  "slug": "cash-is-sacred-family-businesses-manage-working-capital-discipline",
+  "image": "hero-interior.jpg",
+  "title_es": "El Efectivo Es Sagrado",
+  "title_en": "Cash Is Sacred",
+  "hook_es": "El beneficio es una opinion. La caja es un hecho. El cementerio de empresas fracasadas esta lleno de companias rentables que se quedaron sin dinero —…",
+  "hook_en": "Profit is an opinion. Cash is a fact. The graveyard of failed businesses is full of profitable companies that ran out of money — not because they…"
+ },
+ {
+  "slug": "brand-architecture-diversified-groups-share-name-or-stand-apart",
+  "image": "legacy.jpg",
+  "title_es": "Arquitectura de Marca para Grupos…",
+  "title_en": "Brand Architecture for Diversified Groups",
+  "hook_es": "Un nombre es el activo mas caro que posee un grupo diversificado — y el mas facil de diluir.",
+  "hook_en": "A name is the most expensive asset a diversified group owns — and the easiest to dilute."
+ },
+ {
+  "slug": "management-systems-not-bold-bets-decide-which-companies-last",
+  "image": "hero-clean.jpg",
+  "title_es": "La Ventaja Sin Glamour",
+  "title_en": "The Unglamorous Edge",
+  "hook_es": "Las apuestas audaces ganan los titulares. Los aburridos sistemas de gestión ganan las décadas.",
+  "hook_en": "Bold bets win the headlines. Boring management systems win the decades."
+ },
+ {
+  "slug": "modernizing-without-losing-the-soul-innovation-in-traditional-industries",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Modernizar Sin Perder el Alma",
+  "title_en": "Modernizing Without Losing the Soul",
+  "hook_es": "Innovar en una industria tradicional no consiste en perseguir lo nuevo.",
+  "hook_en": "Innovation in a traditional industry is not about chasing the new."
+ },
+ {
+  "slug": "best-deal-i-walked-away-from-due-diligence-discipline-of-saying-no",
+  "image": "legacy-v2.jpg",
+  "title_es": "El Mejor Negocio Que Hice Fue del Que Me…",
+  "title_en": "The Best Deal I Ever Made Was the One I…",
+  "hook_es": "Las adquisiciones se ganan o se pierden mucho antes de la transferencia.",
+  "hook_en": "Acquisitions are won or lost long before the wire transfer. They are won in the unglamorous weeks of due diligence, and above all in the willingness…"
+ },
+ {
+  "slug": "how-to-hire-senior-executives-founders-framework-leadership-hires",
+  "image": "miami.jpg",
+  "title_es": "Cómo Contratar Directivos que de Verdad…",
+  "title_en": "How to Hire Senior Executives Who Actually…",
+  "hook_es": "Los errores más caros que he cometido no fueron malas adquisiciones — fueron fichajes de directivos en los que me equivoqué.",
+  "hook_en": "The most expensive mistakes I have made were not bad acquisitions — they were senior hires I got wrong."
+ }
+]
