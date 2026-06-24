@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+LaunchAgent: publicación de @manzanosenterprises.
+
+Dispara CADA HORA entre las 9:00 y las 20:00 (hora local del Mac), con minutos
+variados. El motor (daily_engine.py) decide:
+  · si hoy toca publicar (un día sí, un día no: ordinal%2==0), y
+  · la HORA OBJETIVO pseudo-aleatoria del día (9–20) — publica en el primer
+    disparo a partir de esa hora.
+Es idempotente: 1 publicación/día garantizada por .daily_state.json. Disparar
+cada hora solo sirve para coger el Mac despierto y para que la hora real varíe.
+
+Instalación:
+  cp ~/manzanos-enterprises-social/com.manzanosenterprises.dailyig.plist ~/Library/LaunchAgents/
+  launchctl load -w ~/Library/LaunchAgents/com.manzanosenterprises.dailyig.plist
+Comprobar:
+  launchctl list | grep manzanosenterprises
+  tail -f ~/manzanos-enterprises-social/daily.log
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.manzanosenterprises.dailyig</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/victor/manzanos-enterprises-social/run_daily.sh</string>
+    </array>
+
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict><key>Hour</key><integer>9</integer><key>Minute</key><integer>12</integer></dict>
+        <dict><key>Hour</key><integer>10</integer><key>Minute</key><integer>47</integer></dict>
+        <dict><key>Hour</key><integer>11</integer><key>Minute</key><integer>23</integer></dict>
+        <dict><key>Hour</key><integer>12</integer><key>Minute</key><integer>51</integer></dict>
+        <dict><key>Hour</key><integer>13</integer><key>Minute</key><integer>18</integer></dict>
+        <dict><key>Hour</key><integer>14</integer><key>Minute</key><integer>39</integer></dict>
+        <dict><key>Hour</key><integer>15</integer><key>Minute</key><integer>7</integer></dict>
+        <dict><key>Hour</key><integer>16</integer><key>Minute</key><integer>44</integer></dict>
+        <dict><key>Hour</key><integer>17</integer><key>Minute</key><integer>29</integer></dict>
+        <dict><key>Hour</key><integer>18</integer><key>Minute</key><integer>56</integer></dict>
+        <dict><key>Hour</key><integer>19</integer><key>Minute</key><integer>15</integer></dict>
+        <dict><key>Hour</key><integer>20</integer><key>Minute</key><integer>33</integer></dict>
+    </array>
+
+    <key>StandardOutPath</key>
+    <string>/Users/victor/manzanos-enterprises-social/launchd.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/victor/manzanos-enterprises-social/launchd.err.log</string>
+
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>

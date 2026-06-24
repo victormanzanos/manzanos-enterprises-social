@@ -1,0 +1,9 @@
+# Solo se sube el CÓDIGO y las IMÁGENES (posts/ stories/) — nada de estado ni logs.
+.daily_state.json
+*.log
+launchd.out.log
+launchd.err.log
+token-logs/
+drop/
+__pycache__/
+.DS_Store
