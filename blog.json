@@ -446,5 +446,29 @@
   "title_en": "How to Hire Senior Executives Who Actually…",
   "hook_es": "Los errores más caros que he cometido no fueron malas adquisiciones — fueron fichajes de directivos en los que me equivoqué.",
   "hook_en": "The most expensive mistakes I have made were not bad acquisitions — they were senior hires I got wrong."
+ },
+ {
+  "slug": "decision-making-under-uncertainty-high-stakes-calls-incomplete-information",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Decidir Sin Certeza",
+  "title_en": "Deciding Without Certainty",
+  "hook_es": "Esperar a tener certeza es la decisión más cara que nunca tomarás: actúa rápido en lo reversible, despacio en lo irreversible.",
+  "hook_en": "Waiting for certainty is the most expensive decision you'll never make: move fast on reversible bets, slow on the irreversible."
+ },
+ {
+  "slug": "post-merger-integration-why-acquisitions-fail-after-deal-closes",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Firmar es lo Fácil",
+  "title_en": "Signing Is the Easy Part",
+  "hook_es": "Entre el 70% y el 90% de las adquisiciones nunca entregan el valor esperado — y casi ninguna fracasa en la mesa de negociación.",
+  "hook_en": "Up to 90% of acquisitions never deliver the value buyers expected — and almost none of those failures happen at the table."
+ },
+ {
+  "slug": "family-constitution-keep-business-in-the-family-governance",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Reglas Antes de Necesitarlas",
+  "title_en": "Rules Before You Need Them",
+  "hook_es": "Robert Mondavi puso su apellido en la bodega y aún así la perdió: no ante un rival, sino ante un conflicto familiar sin reglas escritas.",
+  "hook_en": "Robert Mondavi put his name on the winery and still lost it — not to a rival, but to a family fight no written rules could settle."
  }
 ]
