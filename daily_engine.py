@@ -243,6 +243,14 @@ def archive_real(path):
 # ──────────────────────────────────────────────────────────────────────────
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36")
+# WHY: 3 intentos cubren un corte de red puntual (ConnectionResetError, timeout,
+# TLS/DNS caído) sin colgar el run; más intentos apenas ayudan y alargan el proceso.
+API_MAX_TRIES = 3
+API_BACKOFF   = 2   # segundos base; espera 2s tras el 1er fallo, 4s tras el 2º (exponencial)
+# WHY: sin timeout, un socket colgado bloquea el run indefinidamente. 30s es holgado
+# para la Graph API y permite que el reintento entre en juego ante un cuelgue.
+API_TIMEOUT   = 30
+
 def api(path, params, method="POST"):
     data = urllib.parse.urlencode(params).encode()
     hdr  = {"User-Agent": UA}
@@ -250,11 +258,21 @@ def api(path, params, method="POST"):
         req = urllib.request.Request(f"{BASE}/{path}?{data.decode()}", headers=hdr)
     else:
         req = urllib.request.Request(f"{BASE}/{path}", data=data, method="POST", headers=hdr)
-    try:
-        with urllib.request.urlopen(req) as r:
-            return json.load(r)
-    except urllib.error.HTTPError as e:
-        return {"_http_error": e.code, "body": e.read().decode()}
+    last_err = None
+    for attempt in range(API_MAX_TRIES):
+        try:
+            with urllib.request.urlopen(req, timeout=API_TIMEOUT) as r:
+                return json.load(r)
+        except urllib.error.HTTPError as e:
+            # Respuesta del servidor (4xx/5xx): no es fallo de transporte → no reintentar.
+            return {"_http_error": e.code, "body": e.read().decode()}
+        except (urllib.error.URLError, OSError) as e:
+            # WHY: ConnectionResetError, timeouts, DNS/TLS caído = transitorio → reintentar.
+            # Incidencia 2026-07-01: un ConnectionResetError sin captura tumbó todo el run.
+            last_err = e
+            if attempt < API_MAX_TRIES - 1:
+                time.sleep(API_BACKOFF * (2 ** attempt))
+    return {"_net_error": str(last_err)}
 
 def wait_ready(cid):
     for _ in range(20):
@@ -381,7 +399,15 @@ def main():
         pr = publish_image(post_url, caption=cap)
 
     time.sleep(random.randint(20, 120))  # gap humano antes del story
-    sr = publish_image(nxt["story_url"], story=True)
+    # WHY: la story NUNCA debe tumbar el guardado de estado tras un feed ya publicado.
+    # Incidencia 2026-07-01: un ConnectionResetError en la story propagó y save_state()
+    # no corrió → last_date sin avanzar → repetición de frase. api() ya reintenta;
+    # esto es el cinturón de seguridad final ante cualquier excepción inesperada.
+    try:
+        sr = publish_image(nxt["story_url"], story=True)
+    except Exception as e:
+        print("Story falló (no crítico, se continúa y se guarda estado):", e)
+        sr = {"error": str(e)}
 
     post_ok  = bool(pr.get("permalink"))
     story_ok = bool(sr.get("permalink") or sr.get("id"))
