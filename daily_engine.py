@@ -102,6 +102,20 @@ def save_state(s):
     json.dump(s, open(STATE, "w"))
 
 
+def pick_special(key, sd):
+    """Publicación de un día especial de España (content.SPECIAL_DAYS).
+    Tarjeta temática en español, mismas rutas/naming sp-<key> que make_me.py."""
+    return {
+        "kind": "special", "idx": key, "lang": "es",
+        "caption": sd["caption"],
+        "post_url":  f"{RAW}/posts/sp-{key}.jpg",
+        "story_url": f"{RAW}/stories/sp-{key}-st.jpg",
+        "post_file":  f"posts/sp-{key}.jpg",
+        "story_file": f"stories/sp-{key}-st.jpg",
+        "label": f"Día especial · {sd['label']}",
+    }
+
+
 def pick_next(s):
     """Decide la siguiente publicación. Devuelve dict con kind/lang/caption/urls/labels.
 
@@ -339,11 +353,25 @@ def todays_target_hour(ordinal):
 # ──────────────────────────────────────────────────────────────────────────
 def main():
     s = state()
-    real_items = real_collect()
+    today = datetime.date.today()
+    today_s = str(today)
+
+    # ¿Es hoy un día especial de España? (12-oct, Navidad, Nochevieja, Año Nuevo…)
+    # WHY: en estas fechas SIEMPRE se publica el saludo temático, aunque toque
+    # "día de descanso": salta la cadencia día-sí-día-no (guarda más abajo) y
+    # tiene prioridad sobre la rotación de frases/blog y sobre la foto del drop.
+    special = content.special_for(today.month, today.day)
+    is_special = bool(special)
+
+    real_items = [] if is_special else real_collect()
     do_real = bool(real_items) and s.get("since_real", 0) >= REAL_EVERY
 
-    nxt = pick_next(s)
-    cap = rotate_caption(nxt["caption"], nxt["lang"])
+    if is_special:
+        nxt = pick_special(today.strftime("%m%d"), special)
+        cap = nxt["caption"]   # pie fijo temático — no se baraja (mantiene los hashtags festivos)
+    else:
+        nxt = pick_next(s)
+        cap = rotate_caption(nxt["caption"], nxt["lang"])
 
     print(f"NEXT = {nxt['kind'].upper()} · {nxt['label']}")
     print(f"POST:  {nxt['post_url']}")
@@ -356,20 +384,21 @@ def main():
         print("DRY RUN — nada publicado.")
         return
 
-    today = datetime.date.today()
-    today_s = str(today)
     forced = os.environ.get("FORCE") == "1"
 
-    # Guardia "un día sí, un día no"
-    if not forced and today.toordinal() % ME_CYCLE_DIV != ME_CYCLE_DAY:
+    # Guardia "un día sí, un día no" — SE SALTA en días especiales de España
+    # (esos días siempre publican el saludo, caiga en el día que caiga).
+    if not forced and not is_special and today.toordinal() % ME_CYCLE_DIV != ME_CYCLE_DAY:
         print(f"Día de descanso ({today_s}) — publica cuando ordinal%{ME_CYCLE_DIV}=={ME_CYCLE_DAY}.")
         return
     # Idempotencia: 1 publicación/día
     if s.get("last_date") == today_s:
         print(f"Ya se publicó hoy ({today_s}) — nada que hacer.")
         return
-    # Guardia de hora objetivo (hora distinta cada día)
-    target = todays_target_hour(today.toordinal())
+    # Guardia de hora objetivo (hora distinta cada día). En día especial NO se
+    # difiere: publica en el primer disparo de la mañana para no arriesgar la
+    # felicitación si el Mac se duerme luego (target = primera hora de la franja).
+    target = PUBLISH_HOUR_MIN if is_special else todays_target_hour(today.toordinal())
     now = datetime.datetime.now()
     if not forced and now.hour < target:
         print(f"Aún no es la hora objetivo de hoy ({now.hour}h < {target}h) — espero a un disparo posterior.")
@@ -413,7 +442,12 @@ def main():
     story_ok = bool(sr.get("permalink") or sr.get("id"))
     if post_ok:
         s["last_date"] = today_s
-        if is_real:
+        if is_special:
+            # WHY: el saludo temático es un one-off — NO avanza la rotación de
+            # frases/blog ni la alternancia ES/EN, para que el día regular
+            # siguiente continúe justo donde se quedó.
+            pass
+        elif is_real:
             archive_real(real_items[0][0])
             s["since_real"] = 0
         else:
@@ -447,7 +481,11 @@ def main():
         f"</tr></table>"
         f"<p style='color:#888;font-size:12px'>Caption:</p>"
         f"<pre style='white-space:pre-wrap;color:#555;font-size:12px'>{cap}</pre>"
-        f"<p style='color:#aaa;font-size:11px'>Día alterno · 1 de cada {BLOG_EVERY} es destacado de blog.</p>",
+        f"<p style='color:#aaa;font-size:11px'>"
+        + ("🇪🇸 Día especial de España — publicación garantizada (salta la cadencia)."
+           if is_special else
+           f"Día alterno · 1 de cada {BLOG_EVERY} es destacado de blog.")
+        + "</p>",
         post_path, story_path, subject=subj
     )
 

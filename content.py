@@ -292,6 +292,134 @@ BLOG = [
 SITE = "https://www.manzanosenterprises.com"
 
 # ──────────────────────────────────────────────────────────────────────────
+# SPECIAL_DAYS — festividades españolas relevantes para el público.
+# En estas fechas fijas el motor SIEMPRE publica (SALTA la cadencia día-sí-día-no)
+# una tarjeta temática — post 1080×1350 + story 1080×1920 — con el MISMO marco
+# dorado + logo Manzanos Enterprises que el resto, redactada en español.
+# key = "MMDD" (mes+día, cero a la izquierda). Fuente única: la importan tanto
+# make_me.py (genera las imágenes sp-<key>) como daily_engine.py (publica).
+# Añade o edita fechas FIJAS libremente aquí; las de fecha variable (Semana Santa,
+# Día de la Madre) no se incluyen porque cambian cada año.
+#
+# Campos por día:
+#   eyebrow  — antetítulo en versalitas (línea pequeña dorada de la tarjeta)
+#   title    — titular grande (saludo)
+#   message  — subtítulo breve (una frase cálida, en cursiva)
+#   label    — etiqueta corta para logs/email
+#   caption  — pie completo del post en Instagram (solo datos reales; ver Constitución)
+# ──────────────────────────────────────────────────────────────────────────
+SPECIAL_DAYS = {
+    "0101": {
+        "eyebrow": "PRÓSPERO AÑO NUEVO",
+        "title":   "¡Feliz Año Nuevo!",
+        "message": "Que el nuevo año traiga salud, éxito y grandes proyectos.",
+        "label":   "Año Nuevo",
+        "caption": (
+            "¡Feliz Año Nuevo! 🥂\n\n"
+            "Que el año que empieza traiga salud, prosperidad y grandes proyectos "
+            "para todos. Gracias por acompañarnos un año más.\n\n"
+            "— Manzanos Enterprises · Grupo familiar desde 1890\n\n"
+            "#ManzanosEnterprises #FelizAñoNuevo #AñoNuevo #España #Prosperidad"
+        ),
+    },
+    "0106": {
+        "eyebrow": "DÍA DE REYES",
+        "title":   "¡Feliz Día de Reyes!",
+        "message": "Sus Majestades los Reyes Magos llegan cargados de ilusión.",
+        "label":   "Día de Reyes",
+        "caption": (
+            "¡Feliz Día de Reyes! 👑✨\n\n"
+            "Que la ilusión de esta mañana mágica llene de alegría vuestros hogares.\n\n"
+            "— Manzanos Enterprises · Grupo familiar desde 1890\n\n"
+            "#ManzanosEnterprises #DíaDeReyes #ReyesMagos #España #Navidad"
+        ),
+    },
+    "0319": {
+        "eyebrow": "DÍA DEL PADRE",
+        "title":   "¡Feliz Día del Padre!",
+        "message": "Un homenaje a quienes construyen legado, generación tras generación.",
+        "label":   "Día del Padre",
+        "caption": (
+            "¡Feliz Día del Padre! 👨‍👧‍👦\n\n"
+            "Hoy celebramos a quienes nos enseñan el valor del esfuerzo y del legado "
+            "familiar.\n\n"
+            "— Manzanos Enterprises · Grupo familiar desde 1890\n\n"
+            "#ManzanosEnterprises #DíaDelPadre #España #EmpresaFamiliar #Legado"
+        ),
+    },
+    "1012": {
+        "eyebrow": "FIESTA NACIONAL DE ESPAÑA",
+        "title":   "¡Feliz Día de España!",
+        "message": "Orgullosos de nuestras raíces y de proyectar España al mundo.",
+        "label":   "Día de España",
+        "caption": (
+            "¡Feliz Día de España! 🇪🇸\n\n"
+            "Un grupo familiar español desde 1890, orgulloso de llevar el nombre de "
+            "España a mercados de todo el mundo.\n\n"
+            "— Manzanos Enterprises · Grupo familiar desde 1890\n\n"
+            "#ManzanosEnterprises #DíaDeEspaña #FiestaNacional #España #12DeOctubre"
+        ),
+    },
+    "1206": {
+        "eyebrow": "DÍA DE LA CONSTITUCIÓN",
+        "title":   "Día de la Constitución",
+        "message": "Celebramos los valores que hacen posible emprender y construir futuro.",
+        "label":   "Día de la Constitución",
+        "caption": (
+            "Feliz Día de la Constitución Española. 🇪🇸\n\n"
+            "Celebramos los valores democráticos que hacen posible emprender y "
+            "construir futuro.\n\n"
+            "— Manzanos Enterprises · Grupo familiar desde 1890\n\n"
+            "#ManzanosEnterprises #DíaDeLaConstitución #España #6DeDiciembre"
+        ),
+    },
+    "1224": {
+        "eyebrow": "NOCHEBUENA",
+        "title":   "¡Feliz Nochebuena!",
+        "message": "Que esta noche reúna a las familias alrededor de la mesa.",
+        "label":   "Nochebuena",
+        "caption": (
+            "¡Feliz Nochebuena! 🎄\n\n"
+            "Desde nuestra familia a la vuestra, os deseamos una noche llena de "
+            "cariño y buena compañía.\n\n"
+            "— Manzanos Enterprises · Grupo familiar desde 1890\n\n"
+            "#ManzanosEnterprises #Nochebuena #FelizNavidad #España #Navidad"
+        ),
+    },
+    "1225": {
+        "eyebrow": "FELIZ NAVIDAD",
+        "title":   "¡Feliz Navidad!",
+        "message": "Os deseamos paz, salud y alegría en estas fiestas.",
+        "label":   "Navidad",
+        "caption": (
+            "¡Feliz Navidad! 🎄✨\n\n"
+            "Os deseamos unas fiestas llenas de paz, salud y momentos inolvidables "
+            "junto a los vuestros.\n\n"
+            "— Manzanos Enterprises · Grupo familiar desde 1890\n\n"
+            "#ManzanosEnterprises #FelizNavidad #Navidad #España"
+        ),
+    },
+    "1231": {
+        "eyebrow": "NOCHEVIEJA",
+        "title":   "¡Feliz Nochevieja!",
+        "message": "Despedimos el año con gratitud y miramos al futuro con ilusión.",
+        "label":   "Nochevieja",
+        "caption": (
+            "¡Feliz Nochevieja! 🥂🍇\n\n"
+            "Gracias por acompañarnos este año. Que las doce uvas traigan salud y "
+            "prosperidad para el año que entra.\n\n"
+            "— Manzanos Enterprises · Grupo familiar desde 1890\n\n"
+            "#ManzanosEnterprises #Nochevieja #FinDeAño #España #FelizAñoNuevo"
+        ),
+    },
+}
+
+
+def special_for(month, day):
+    """Devuelve el dict del día especial para (month, day) o None. key = 'MMDD'."""
+    return SPECIAL_DAYS.get(f"{month:02d}{day:02d}")
+
+# ──────────────────────────────────────────────────────────────────────────
 # LIVE SOURCE OF TRUTH: quotes.json / blog.json (grow over time)
 # The literals above are the seed/fallback. The refresh jobs APPEND new entries
 # to these JSON files — never edit the Python. If a JSON file is missing or

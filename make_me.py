@@ -322,6 +322,46 @@ def make_blog_card(idx, lang, story=False):
     return img
 
 
+def make_special_card(key, story=False):
+    """Festividad española (SPECIAL_DAYS) — saludo temático sobre el gradiente de
+    marca, con el mismo marco dorado + logo. Siempre en español (una tarjeta)."""
+    sd = content.SPECIAL_DAYS[key]
+    w, h = (STORY_W, STORY_H) if story else (POST_W, POST_H)
+    img = gradient_bg(w, h)
+    d = ImageDraw.Draw(img)
+
+    eyebrow_y = int(h * (0.17 if story else 0.15))
+    spaced(d, w / 2, eyebrow_y, sd["eyebrow"], font(FH, 22), GOLD, sp=6)
+    d.line([(w * 0.36, eyebrow_y + 44), (w * 0.64, eyebrow_y + 44)], fill=GOLD_DK, width=1)
+
+    # Titular grande (saludo). Se autoajusta para no salirse de la caja.
+    box_w = int(w * 0.82)
+    tf, tlines, tlh = fit_lines(d, sd["title"], FB, box_w,
+                                int(h * (0.30 if story else 0.28)),
+                                hi=(104 if story else 92), lo=44, line_ratio=1.12)
+    y = int(h * (0.33 if story else 0.31))
+    for ln in tlines:
+        lw = d.textlength(ln, font=tf)
+        d.text(((w - lw) / 2, y), ln, font=tf, fill=CREAM)
+        y += tlh
+    y += 22
+    d.line([(w * 0.42, y), (w * 0.58, y)], fill=GOLD, width=2)
+    y += 36
+
+    # Subtítulo (mensaje breve, en cursiva).
+    mf = font(FI, 36 if story else 31)
+    mlines = wrap(d, sd["message"], mf, int(w * 0.74))
+    mlh = int((36 if story else 31) * 1.34)
+    for ln in mlines:
+        lw = d.textlength(ln, font=mf)
+        d.text(((w - lw) / 2, y), ln, font=mf, fill=DIM)
+        y += mlh
+
+    img = _frame_corners(img, story)
+    img = add_logo(img, story)
+    return img
+
+
 # ════════════════════════════════════════════════════════════════════════
 # Output
 # ════════════════════════════════════════════════════════════════════════
@@ -344,18 +384,32 @@ def build_blog(idx, lang):
     print(f"  ✓ blog  {idx:02d} [{lang}]")
 
 
+def build_special(key):
+    save(make_special_card(key, story=False), OUT_POSTS,   f"sp-{key}.jpg")
+    save(make_special_card(key, story=True),  OUT_STORIES, f"sp-{key}-st.jpg")
+    print(f"  ✓ special {key} · {content.SPECIAL_DAYS[key]['label']}")
+
+
 def main():
     if len(sys.argv) < 2:
         print(__doc__); sys.exit(1)
     mode = sys.argv[1]
     if mode == "batch":
-        print(f"Generando {content.quote_count()} quotes + {content.blog_count()} blogs × 2 idiomas...\n")
+        print(f"Generando {content.quote_count()} quotes + {content.blog_count()} blogs × 2 idiomas"
+              f" + {len(content.SPECIAL_DAYS)} días especiales...\n")
         for lang in ("es", "en"):
             for i in range(content.quote_count()):
                 build_quote(i, lang)
             for i in range(content.blog_count()):
                 build_blog(i, lang)
+        for key in content.SPECIAL_DAYS:
+            build_special(key)
         print(f"\n✓ Listo. Posts en {OUT_POSTS}, stories en {OUT_STORIES}")
+    elif mode == "specials":
+        for key in content.SPECIAL_DAYS:
+            build_special(key)
+    elif mode == "special" and len(sys.argv) >= 3:
+        build_special(sys.argv[2])
     elif mode == "quote" and len(sys.argv) >= 4:
         build_quote(int(sys.argv[2]), sys.argv[3])
     elif mode == "blog" and len(sys.argv) >= 4:
