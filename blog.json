@@ -470,5 +470,45 @@
   "title_en": "Rules Before You Need Them",
   "hook_es": "Robert Mondavi puso su apellido en la bodega y aún así la perdió: no ante un rival, sino ante un conflicto familiar sin reglas escritas.",
   "hook_en": "Robert Mondavi put his name on the winery and still lost it — not to a rival, but to a family fight no written rules could settle."
+ },
+ {
+  "slug": "profit-is-an-opinion-cash-is-a-fact-why-profitable-businesses-run-out-of-money",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "La Caja No Miente",
+  "title_en": "Cash Never Lies",
+  "hook_es": "Una botella de Gran Reserva tarda cinco años en cobrarse. En ese hueco, las empresas rentables quiebran en silencio.",
+  "hook_en": "A Gran Reserva can take five years to get paid. In that gap, profitable businesses quietly go broke."
+ },
+ {
+  "slug": "pricing-power-why-ability-to-raise-prices-is-truest-test-of-a-great-business",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "La Prueba de Buffett",
+  "title_en": "Buffett's One Test",
+  "hook_es": "Buffett lo dijo claro: si necesitas rezar antes de subir los precios un 10%, tienes un mal negocio.",
+  "hook_en": "Buffett said it plainly: if you need to pray before raising prices 10%, you own a bad business."
+ },
+ {
+  "slug": "when-to-hire-first-c-level-executive-cfo-coo-signals",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Tu Primer Directivo",
+  "title_en": "Your First Executive",
+  "hook_es": "Demasiado pronto y quemas caja en un título. Demasiado tarde y el negocio se estanca alrededor del fundador.",
+  "hook_en": "Too early and you burn cash on a title. Too late and the business plateaus around its founder."
+ },
+ {
+  "slug": "customer-retention-vs-acquisition-why-keeping-customers-costs-less",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "El Cliente que Ya Tienes",
+  "title_en": "The Customer You Own",
+  "hook_es": "Subir la retención un 5% puede elevar el beneficio hasta un 95%. El crecimiento más barato ya es tuyo.",
+  "hook_en": "A 5% lift in retention can raise profit up to 95%. The cheapest growth you can buy, you already own."
+ },
+ {
+  "slug": "debt-vs-equity-how-to-finance-growth-without-giving-away-your-company",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Deuda o Capital",
+  "title_en": "Debt or Equity",
+  "hook_es": "La deuda te pide el dinero de vuelta con intereses. El capital te pide una porción de todo lo que construyas — para siempre.",
+  "hook_en": "Debt asks for your money back with interest. Equity asks for a slice of everything you'll ever build — forever."
  }
 ]
