@@ -510,5 +510,45 @@
   "title_en": "Debt or Equity",
   "hook_es": "La deuda te pide el dinero de vuelta con intereses. El capital te pide una porción de todo lo que construyas — para siempre.",
   "hook_en": "Debt asks for your money back with interest. Equity asks for a slice of everything you'll ever build — forever."
+ },
+ {
+  "slug": "how-to-value-a-business-before-you-buy-it-3-valuation-methods",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Precio no es Valor",
+  "title_en": "Price Isn't Value",
+  "hook_es": "El precio es lo que el vendedor pide. El valor es lo que la empresa vale. Los 3 métodos para distinguirlos antes de firmar.",
+  "hook_en": "Price is what the seller wants. Value is what the business is worth. The 3 methods to tell them apart before you sign."
+ },
+ {
+  "slug": "how-to-enter-a-new-international-market-5-entry-modes",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "El Modo de Entrar",
+  "title_en": "How You Enter Wins",
+  "hook_es": "Walmart perdió mil millones en Alemania. El modo con el que entras en un mercado importa más que el mercado que eliges.",
+  "hook_en": "Walmart lost a billion in Germany. How you enter a market matters more than which market you choose."
+ },
+ {
+  "slug": "build-or-buy-organic-vs-inorganic-growth-how-to-choose",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "¿Construir o Comprar?",
+  "title_en": "Build or Buy?",
+  "hook_es": "Un camino compone despacio y nunca se rompe. El otro compra una década en un día — y puede enterrarte en deuda.",
+  "hook_en": "One path compounds slowly and never breaks. The other buys a decade in a day — and can bury you in debt."
+ },
+ {
+  "slug": "when-to-sell-your-business-exit-timing-and-preparation",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Vender desde la Fuerza",
+  "title_en": "Sell From Strength",
+  "hook_es": "La mayoría vende desde la debilidad — agotado, enfermo, presionado — y el comprador lo huele. Prepárate con años de antelación.",
+  "hook_en": "Most owners sell from weakness — exhausted, sick, pressured — and the buyer smells it. Prepare years ahead and sell from strength."
+ },
+ {
+  "slug": "how-to-build-a-business-that-runs-without-you-founders-trap",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "El Empleo que te Posee",
+  "title_en": "The Job That Owns You",
+  "hook_es": "Apaga el móvil dos semanas. Si se te encoge el estómago, no tienes un negocio: tienes un empleo que te posee a ti.",
+  "hook_en": "Switch your phone off for two weeks. If your stomach tightens, you don't own a business — you own a job that owns you."
  }
 ]
