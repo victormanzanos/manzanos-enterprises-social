@@ -550,5 +550,45 @@
   "title_en": "The Job That Owns You",
   "hook_es": "Apaga el móvil dos semanas. Si se te encoge el estómago, no tienes un negocio: tienes un empleo que te posee a ti.",
   "hook_en": "Switch your phone off for two weeks. If your stomach tightens, you don't own a business — you own a job that owns you."
+ },
+ {
+  "slug": "capital-allocation-ceos-most-important-job-5-places-every-dollar-can-go",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Dónde Va Cada Euro",
+  "title_en": "Where Every Dollar Goes",
+  "hook_es": "Singleton multiplicó el valor un 20% anual durante 27 años sin inventar nada. Solo fue implacable con el destino del dinero.",
+  "hook_en": "Singleton compounded returns 20% a year for 27 years without inventing a thing. He was just ruthless about where the cash went."
+ },
+ {
+  "slug": "how-to-structure-a-strategic-partnership-joint-venture-without-losing-control",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Socios sin Perder el Mando",
+  "title_en": "Partner Without Losing Control",
+  "hook_es": "La mitad de las joint ventures fracasan, y casi nunca por el negocio. Mueren por quién decide, quién paga y quién puede irse.",
+  "hook_en": "Half of joint ventures fail, almost never over the business case. They die over who decides, who funds, and who can walk away."
+ },
+ {
+  "slug": "why-customers-pay-more-for-brands-they-trust-premium-positioning",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "La Confianza se Cobra",
+  "title_en": "Trust Charges a Premium",
+  "hook_es": "Dos botellas casi idénticas en el mismo estante. Una cuesta un 40% más y vende más. La diferencia no es el vino.",
+  "hook_en": "Two nearly identical bottles on the same shelf. One costs 40% more and outsells the other. The difference isn't the wine."
+ },
+ {
+  "slug": "kpis-every-ceo-should-track-vanity-metrics-to-ignore",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Métricas que Mienten",
+  "title_en": "The Metrics That Lie",
+  "hook_es": "Visitas, descargas, seguidores. Todos esos números pueden duplicarse mientras tu negocio muere en silencio.",
+  "hook_en": "Page views, downloads, followers. Every one of those numbers can double while your business quietly dies."
+ },
+ {
+  "slug": "should-you-own-your-supply-chain-4-tests-vertical-integration",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "¿Foso o Ancla?",
+  "title_en": "Moat or Anchor?",
+  "hook_es": "Ser dueño de tu proveedor parece control. Normalmente es solo un balance más grande con menos opciones.",
+  "hook_en": "Owning your supplier feels like control. It's usually just a bigger balance sheet with fewer options."
  }
 ]
