@@ -348,6 +348,16 @@ def todays_target_hour(ordinal):
     return rng.randint(PUBLISH_HOUR_MIN, PUBLISH_HOUR_MAX)
 
 
+def last_due_publish_date(today):
+    """Fecha del día de publicación esperado más reciente en o antes de `today`.
+    En cadencia día-sí-día-no es hoy (si toca) o ayer. Se compara con
+    state['last_date'] para detectar un día de publicación perdido (Mac apagado)."""
+    o = today.toordinal()
+    while o % ME_CYCLE_DIV != ME_CYCLE_DAY:
+        o -= 1
+    return datetime.date.fromordinal(o)
+
+
 # ──────────────────────────────────────────────────────────────────────────
 # MAIN
 # ──────────────────────────────────────────────────────────────────────────
@@ -385,10 +395,26 @@ def main():
         return
 
     forced = os.environ.get("FORCE") == "1"
+    is_publish_today = today.toordinal() % ME_CYCLE_DIV == ME_CYCLE_DAY
 
-    # Guardia "un día sí, un día no" — SE SALTA en días especiales de España
-    # (esos días siempre publican el saludo, caiga en el día que caiga).
-    if not forced and not is_special and today.toordinal() % ME_CYCLE_DIV != ME_CYCLE_DAY:
+    # Catch-up (regla de Victor, 2026-07-31): si el Mac estuvo apagado el día que
+    # tocaba publicar y ese post se perdió, en cuanto arranque —aunque hoy sea día
+    # de descanso— se publica lo pendiente. EXCEPCIÓN: si hoy ya toca publicación
+    # (la cadencia normal lo cubre) o es día especial, NO hay catch-up.
+    # WHY: la detección es determinista — comparamos state['last_date'] con el
+    # ÚLTIMO día de publicación esperado; si no coinciden, ese día se perdió. No
+    # depende de "detectar" que el Mac durmió. Recupera UN solo post (resume la
+    # cadencia); NO rellena todos los días perdidos, para no spamear el feed.
+    catch_up = False
+    if not is_special and not is_publish_today:
+        due = last_due_publish_date(today)
+        if s.get("last_date") and s["last_date"] != str(due):
+            catch_up = True
+            print(f"CATCH-UP: el día de publicación {due} se perdió "
+                  f"(last_date={s['last_date']}) — publico lo pendiente al arrancar.")
+
+    # Guardia "un día sí, un día no" — SE SALTA en días especiales y en catch-up.
+    if not forced and not is_special and not is_publish_today and not catch_up:
         print(f"Día de descanso ({today_s}) — publica cuando ordinal%{ME_CYCLE_DIV}=={ME_CYCLE_DAY}.")
         return
     # Idempotencia: 1 publicación/día
@@ -398,9 +424,10 @@ def main():
     # Guardia de hora objetivo (hora distinta cada día). En día especial NO se
     # difiere: publica en el primer disparo de la mañana para no arriesgar la
     # felicitación si el Mac se duerme luego (target = primera hora de la franja).
-    target = PUBLISH_HOUR_MIN if is_special else todays_target_hour(today.toordinal())
+    # En catch-up TAMPOCO se difiere: se publica en el primer disparo tras arrancar.
+    target = PUBLISH_HOUR_MIN if (is_special or catch_up) else todays_target_hour(today.toordinal())
     now = datetime.datetime.now()
-    if not forced and now.hour < target:
+    if not forced and not catch_up and now.hour < target:
         print(f"Aún no es la hora objetivo de hoy ({now.hour}h < {target}h) — espero a un disparo posterior.")
         return
     time.sleep(random.randint(30, 420))  # jitter humano
@@ -469,9 +496,11 @@ def main():
             "⚠️ FALLO al publicar — Instagram Manzanos Enterprises (revisar)")
     story_path = os.path.join(LOCAL, nxt["story_file"])
     kind = "Foto real (drop)" if is_real else nxt["label"]
+    when_note = ("recuperación tras Mac apagado" if catch_up
+                 else f"hora objetivo {target}h")
     email_summary(
         f"<p>Publicado hoy en <b>@manzanosenterprises</b> · <b>{kind}</b> "
-        f"(hora objetivo {target}h):</p>"
+        f"({when_note}):</p>"
         f"<p>📸 <b>Post:</b> <a href='{plink}'>{plink}</a><br>📱 <b>Story:</b> {sok}</p>"
         f"<table cellpadding='6'><tr>"
         f"<td valign='top' align='center'><div style='color:#888;font-size:11px;letter-spacing:1px'>POST</div>"
@@ -484,6 +513,9 @@ def main():
         f"<p style='color:#aaa;font-size:11px'>"
         + ("🇪🇸 Día especial de España — publicación garantizada (salta la cadencia)."
            if is_special else
+           "♻️ Recuperación: el Mac estuvo apagado el día que tocaba publicar; "
+           "se publicó lo pendiente al arrancar (resume la cadencia)."
+           if catch_up else
            f"Día alterno · 1 de cada {BLOG_EVERY} es destacado de blog.")
         + "</p>",
         post_path, story_path, subject=subj
