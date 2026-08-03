@@ -622,5 +622,37 @@
   "title_en": "Shirtsleeves in Three Generations",
   "hook_es": "Solo el 12% de las empresas familiares llega a la tercera generación. Casi nunca mueren por dinero: mueren por gobernanza.",
   "hook_en": "Only 12% of family businesses reach the third generation. They almost never die of money — they die of governance."
+ },
+ {
+  "slug": "why-employees-quit-7-reasons-top-talent-leaves-how-to-retain-them",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Por Qué Se Van los Mejores",
+  "title_en": "Why the Best Ones Leave",
+  "hook_es": "Perder a un gran profesional cuesta hasta dos años de su salario — y el 42% de esa fuga era evitable.",
+  "hook_en": "Losing a top performer costs up to two years of salary — and 42% of that turnover was preventable."
+ },
+ {
+  "slug": "why-profitable-businesses-run-out-of-cash-flow-management-trap",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "El Beneficio Miente",
+  "title_en": "Profit Lies",
+  "hook_es": "Una empresa puede ser rentable en cada línea y aun así no pagar las nóminas el viernes. El 82% quiebra por caja.",
+  "hook_en": "You can be profitable on every line and still miss payroll on Friday. 82% of failures die of cash, not profit."
+ },
+ {
+  "slug": "customer-concentration-risk-when-one-big-customer-owns-your-business",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "El Número Más Peligroso",
+  "title_en": "Your Most Dangerous Number",
+  "hook_es": "Cuando un cliente es el 40% de tus ingresos, no tienes un cliente: tienes un socio que te fija el precio.",
+  "hook_en": "When one customer is 40% of revenue, you don't have a customer — you have a partner who sets your price."
+ },
+ {
+  "slug": "sustainability-is-strategy-not-charity-how-green-decisions-make-money",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "La Sostenibilidad Paga",
+  "title_en": "Sustainability Pays",
+  "hook_es": "Ørsted pasó del carbón a ser la mayor eólica marina del mundo. No lo hizo por sentirse bien: leyó bien 30 años.",
+  "hook_en": "Ørsted went from coal to the world's largest offshore wind producer — not to feel good, but by reading 30 years right."
  }
 ]
