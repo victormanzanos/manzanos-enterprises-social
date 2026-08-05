@@ -359,6 +359,32 @@ def last_due_publish_date(today):
 
 
 # ──────────────────────────────────────────────────────────────────────────
+# ERP SOCIAL HUB — controles del equipo (agolfcars.com/erp → vista Social)
+# ──────────────────────────────────────────────────────────────────────────
+# Laura o Victor pueden BLOQUEAR una tarjeta o CORREGIR su caption desde el ERP
+# (sección Social, cuenta @manzanosenterprises). Este motor consulta esos
+# controles justo ANTES de publicar y los aplica a la rotación de marca.
+# Fail-open by design: sin red, sin secreto o con respuesta rara → la rotación
+# sigue intacta (nunca bloquea una publicación por un fallo del hub). (2026-08-05)
+def _hub_controls():
+    import urllib.request as _ur, urllib.parse as _up
+    try:
+        sec = subprocess.check_output([SECRETS, "get", "AGC_SOCIAL_SYNC_SECRET"],
+                                      timeout=15).decode().strip()
+        if not sec:
+            return set(), {}
+        q = _up.urlencode({"handle": "manzanosenterprises", "secret": sec})
+        req = _ur.Request("https://agolfcars.com/api/social-sync.php?" + q,
+                          headers={"User-Agent": "Mozilla/5.0 (social-engine)"})
+        with _ur.urlopen(req, timeout=8) as r:
+            d = json.load(r)
+        ov = d.get("overrides") or {}
+        return set(d.get("blocked") or []), (ov if isinstance(ov, dict) else {})
+    except Exception:
+        return set(), {}
+
+
+# ──────────────────────────────────────────────────────────────────────────
 # MAIN
 # ──────────────────────────────────────────────────────────────────────────
 def main():
@@ -431,6 +457,35 @@ def main():
         print(f"Aún no es la hora objetivo de hoy ({now.hour}h < {target}h) — espero a un disparo posterior.")
         return
     time.sleep(random.randint(30, 420))  # jitter humano
+
+    # ── Controles del ERP (bloqueos / correcciones de caption) ────────────
+    # Solo aplican a la rotación de marca (no a días especiales ni a fotos del
+    # drop, que no viven en el deck que muestra el ERP). Si la tarjeta elegida
+    # está bloqueada, se salta a la siguiente AVANZANDO el estado (para no
+    # reintentarla en la próxima ejecución); la cota evita cualquier bucle.
+    if not is_special and not do_real:
+        blocked, overrides = _hub_controls()
+        if blocked:
+            limit = content.quote_count() + content.blog_count() + 2  # cota dura anti-bucle
+            tries = 0
+            def _card_blocked(n):
+                return (os.path.basename(n["post_file"]) in blocked
+                        or os.path.basename(n["story_file"]) in blocked)
+            while _card_blocked(nxt) and tries < limit:
+                if nxt["kind"] == "blog":
+                    s["blog_idx"] += 1
+                else:
+                    s["quote_idx"] += 1
+                s["post"] += 1
+                nxt = pick_next(s)
+                cap = rotate_caption(nxt["caption"], nxt["lang"])
+                tries += 1
+            if tries:
+                print(f"HUB: {tries} tarjeta(s) bloqueada(s) saltada(s) → publico {nxt['label']}")
+        ov = overrides.get(os.path.basename(nxt["post_file"]))
+        if ov:
+            cap = ov
+            print("HUB: caption corregida desde el ERP.")
 
     # ── POST ──────────────────────────────────────────────────────────────
     is_real = False
