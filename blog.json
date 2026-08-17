@@ -686,5 +686,53 @@
   "title_en": "How to Enter the U.S.",
   "hook_es": "No es un mercado, son 50. Tratar un continente como uno solo hunde a la mayoría de empresas europeas el primer año.",
   "hook_en": "It's not one market, it's 50. Treating a continent as one sinks most European entrants in year one."
+ },
+ {
+  "slug": "how-to-turn-around-a-failing-business-6-step-turnaround-playbook",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Seis Pasos para Renacer",
+  "title_en": "Six Steps to Rebuild",
+  "hook_es": "En 2003 LEGO perdía un millón al día. Un negocio en crisis rara vez es irrecuperable: lo rompen los mismos hábitos que lo gestionan.",
+  "hook_en": "In 2003 LEGO lost a million a day. A failing business is rarely beyond saving; the habits that run it are what broke it."
+ },
+ {
+  "slug": "unit-economics-4-numbers-that-decide-if-your-business-model-works",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Las Cuatro Cifras que Deciden",
+  "title_en": "Four Numbers That Decide",
+  "hook_es": "Blue Apron salió a bolsa por 1.900 M$ y se vendió por 100 M$. El producto estaba bien; las unit economics, rotas.",
+  "hook_en": "Blue Apron IPO'd near $1.9B and sold for $100M. The product was fine. The unit economics were broken."
+ },
+ {
+  "slug": "recession-proof-your-business-6-disciplines-for-a-downturn",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "La Crisis como Oportunidad",
+  "title_en": "A Crisis as Opportunity",
+  "hook_es": "Las que dominan tras una recesión no tuvieron suerte: pasaron los años buenos construyendo un balance que ninguna crisis podía tocar.",
+  "hook_en": "The firms that dominate after a crash weren't lucky. They spent the good years building a balance sheet no recession could touch."
+ },
+ {
+  "slug": "first-mover-vs-fast-follower-when-being-first-actually-wins",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "El Mito de Ser el Primero",
+  "title_en": "The Myth of Going First",
+  "hook_es": "Google no fue el primer buscador ni el iPhone el primer móvil. Los pioneros de mercado fracasan el 47% de las veces.",
+  "hook_en": "Google wasn't the first search engine, nor the iPhone the first phone. Market pioneers fail 47% of the time."
+ },
+ {
+  "slug": "pricing-power-how-to-raise-prices-without-losing-customers",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "El Poder de Subir Precios",
+  "title_en": "The Power of Pricing",
+  "hook_es": "McKinsey lo probó: subir el precio un 1%, sin perder volumen, eleva el beneficio operativo un 8%. Más que cualquier recorte.",
+  "hook_en": "McKinsey proved it: a 1% price rise, with volume held, lifts operating profit 8%. More than any cost cut."
+ },
+ {
+  "slug": "debt-vs-equity-how-to-fund-growth-without-giving-away-your-company",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Deuda o Capital",
+  "title_en": "Debt or Equity",
+  "hook_es": "Sara Blakely construyó Spanx con 5.000 $ sin vender una acción. A Toys R Us la enterró la deuda de su propia compra.",
+  "hook_en": "Sara Blakely built Spanx on $5,000 without selling a share. Toys R Us was buried by the debt of its own buyout."
  }
 ]
