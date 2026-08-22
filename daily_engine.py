@@ -51,28 +51,65 @@ ME_CYCLE_DAY = 0
 PUBLISH_HOUR_MIN = 9
 PUBLISH_HOUR_MAX = 20
 
-# 1 de cada N publicaciones es un destacado del blog; el resto, frases.
-BLOG_EVERY = 3
+# Mezcla (brief Laura §4: frases motivacionales REDUCIDAS, no eliminadas).
+# 1 de cada QUOTE_EVERY publicaciones es una frase; el resto (2 de 3), destacado
+# de blog = contenido real/orientado a leads. Antes era al revés (2/3 frases).
+QUOTE_EVERY = 5  # Victor 2026-08-14: reducir las frases de plantilla a 1 de cada 5
+                 # (antes 3). El brief de Laura las prohíbe del todo; de momento se dejan
+                 # residuales mientras entran más fotos reales / reflexión de fundador.
 
 # Foto real intercalada opcional (drop folder) — como en Palacio.
 DROP_DIR = os.path.join(LOCAL, "drop")
 DONE_DIR = os.path.join(DROP_DIR, "published")
 IMG_EXT  = (".jpg", ".jpeg", ".png")
-REAL_EVERY = 6  # 1 foto real cada 6 publicaciones de marca, si hay en el drop
+REAL_EVERY = 3  # 1 foto real cada 3 publicaciones de marca (brief Laura §4: proyectos
+                # reales deben DOMINAR el feed, ~40%). Subido de 6→3 el 2026-08-14 para
+                # acercarlo al objetivo con la cola actual de heroes por división. Llegar
+                # al 40% pleno + retirar las tarjetas-frase de plantilla exige la galería
+                # rica de proyectos (pendiente de Victor) y el visto bueno de Laura.
 
-# Pools de hashtags por idioma (además del brand). Cada post va en UN idioma.
+# Personas VETADAS en las imágenes (regla permanente de Victor, 2026-08-14):
+# David ya NO está en Manzanos Enterprises (hoy solo Victor y Laura). NUNCA publicar
+# una foto suya, ni de Victor junto a David. Guarda por nombre de fichero: cualquier
+# imagen del drop cuya base contenga un token vetado se descarta y NO se publica,
+# aunque alguien la deje a mano o la añada a una división. Los grupales team-N.png
+# de la biblioteca pueden incluir a David → no entran por el pipeline (solo heroes),
+# y si algún día se usan, revisar a mano antes.
+BLOCKED_PERSON_TOKENS = ("david",)
+
+# Hashtags (brief Laura 2026-08-10 §7): 3 capas, alcance + leads, SIN vanidad.
+# PROHIBIDOS por Laura: #Success #Motivation #Mindset y sus equivalentes ES
+# (#Exito #Motivacion #Mentalidad) — retirados a propósito.
+BRAND_EXTRA = ["#Desde1890", "#Since1890"]  # marca, siempre (junto a H)
+# Negocio/liderazgo (mezcla ES+EN: el post es bilingüe → llega a ambos mercados).
 HASHTAGS_ES = [
-    "#Emprendimiento", "#Emprendedores", "#Liderazgo", "#Negocios", "#Exito",
-    "#Motivacion", "#Mentalidad", "#Estrategia", "#Inversion", "#EmpresaFamiliar",
-    "#VisionEmpresarial", "#CrecimientoEmpresarial", "#Empresa", "#Legado",
+    "#Emprendimiento", "#Emprendedores", "#Liderazgo", "#Negocios",
+    "#Estrategia", "#Inversion", "#EmpresaFamiliar", "#VisionEmpresarial",
+    "#CrecimientoEmpresarial", "#Empresa", "#Legado",
 ]
 HASHTAGS_EN = [
-    "#Entrepreneurship", "#Entrepreneur", "#Leadership", "#Business", "#Success",
-    "#Motivation", "#Mindset", "#Strategy", "#Investing", "#FamilyBusiness",
-    "#BusinessVision", "#Growth", "#LongTermThinking", "#Legacy",
+    "#Entrepreneurship", "#Entrepreneur", "#Leadership", "#Business",
+    "#Strategy", "#Investing", "#FamilyBusiness", "#BusinessVision",
+    "#Growth", "#LongTermThinking", "#Legacy",
 ]
-def hashtags(lang):
-    return HASHTAGS_ES if lang == "es" else HASHTAGS_EN
+# Geo del grupo — honesto en cualquier pieza corporativa (Laura §7: geoetiqueta).
+HASHTAGS_GEO = ["#LaRioja", "#Navarra", "#Haro", "#Rioja", "#Miami", "#Florida", "#Spain"]
+# Nicho de leads por mercado (Laura §7) — reservados a piezas de DIVISIÓN (Fase 2),
+# se eligen según el tema del post (inmobiliario/Palacio → ES; vino/náutica → US).
+NICHO_ES = [
+    "#ObraNueva", "#ObraNuevaLaRioja", "#Haro", "#Calahorra", "#Navarra",
+    "#LaRioja", "#ViviendaNueva", "#CasaConPiscina", "#EscapadaRomantica",
+    "#EscapadaConEncanto", "#TurismoRioja", "#Enoturismo",
+]
+NICHO_US = [
+    "#MiamiWine", "#FloridaWineLovers", "#WineImporter", "#SpanishWine",
+    "#RiojaWine", "#WineDistributor", "#MiamiLifestyle", "#BoatingFlorida",
+    "#MiamiBoating", "#GolfCart", "#FloridaGolf",
+]
+def hashtags(lang=None):
+    # Pool genérico para posts corporativos (frase/legado): marca + negocio + geo,
+    # ES+EN mezclado. Los NICHO_* NO entran aquí — son para piezas de división.
+    return BRAND_EXTRA + HASHTAGS_ES + HASHTAGS_EN + HASHTAGS_GEO
 
 DRY = os.environ.get("DRY") == "1"
 
@@ -122,7 +159,9 @@ def pick_next(s):
     Idioma alterno: post par → español, post impar → inglés. Así unos posts
     salen en español y otros en inglés, cada uno en UN solo idioma."""
     lang = "es" if s["post"] % 2 == 0 else "en"
-    if s["post"] % BLOG_EVERY == (BLOG_EVERY - 1):
+    # Frase 1 de cada QUOTE_EVERY; el resto, blog (contenido real). El caption es
+    # bilingüe en ambos casos; `lang` solo decide qué TARJETA (es/en) se muestra.
+    if s["post"] % QUOTE_EVERY != 0:
         idx = s["blog_idx"] % content.blog_count()
         b = content.BLOG[idx]
         return {
@@ -151,34 +190,39 @@ def pick_next(s):
 # ──────────────────────────────────────────────────────────────────────────
 # CAPTIONS (bilingües ES/EN) + rotación de hashtags
 # ──────────────────────────────────────────────────────────────────────────
-def quote_caption(es, en, lang):
-    if lang == "es":
-        return (
-            f"«{es}»\n\n"
-            f"— Manzanos Enterprises · Grupo familiar desde 1890\n\n"
-            f"{H} " + " ".join(HASHTAGS_ES[:8])
-        )
+# Separador ES⸻EN (brief Laura §3): cada post lleva primero español, después
+# inglés, misma idea. Geoetiqueta del grupo en el pie (§7) y CTA bilingüe (§8).
+SEP = "⸻"
+GEO_LINE = "📍 La Rioja · Navarra · Miami"
+CTA_QUOTE = "Descubre el grupo / Discover the group → manzanosenterprises.com"
+
+def quote_caption(es, en, lang=None):
+    # Bilingüe siempre; `lang` solo decide la tarjeta que se muestra, no el texto.
+    seed = " ".join([H] + BRAND_EXTRA + HASHTAGS_ES[:4] + HASHTAGS_EN[:4] + HASHTAGS_GEO[:3])
     return (
-        f"“{en}”\n\n"
-        f"— Manzanos Enterprises · A family-owned group since 1890\n\n"
-        f"{H} " + " ".join(HASHTAGS_EN[:8])
+        f"«{es}»\n"
+        f"— Manzanos Enterprises · Grupo familiar desde 1890\n\n"
+        f"{SEP}\n\n"
+        f"“{en}”\n"
+        f"— A family-owned group since 1890\n\n"
+        f"{CTA_QUOTE}\n"
+        f"{GEO_LINE}\n\n"
+        f"{seed}"
     )
 
-def blog_caption(b, lang):
-    if lang == "es":
-        url = f"{content.SITE}/es/news/{b['slug']}"
-        return (
-            f"📈 {b['title_es']}\n\n"
-            f"{b['hook_es']}\n\n"
-            f"Lee el artículo completo 🔗 link en bio\n{url}\n\n"
-            f"{H} " + " ".join(HASHTAGS_ES[:8])
-        )
-    url = f"{content.SITE}/en/news/{b['slug']}"
+def blog_caption(b, lang=None):
+    url_es = f"{content.SITE}/es/news/{b['slug']}"
+    seed = " ".join([H] + BRAND_EXTRA + HASHTAGS_ES[:4] + HASHTAGS_EN[:4] + HASHTAGS_GEO[:3])
     return (
-        f"📈 {b['title_en']}\n\n"
+        f"📈 {b['title_es']}\n"
+        f"{b['hook_es']}\n\n"
+        f"{SEP}\n\n"
+        f"📈 {b['title_en']}\n"
         f"{b['hook_en']}\n\n"
-        f"Read the full article 🔗 link in bio\n{url}\n\n"
-        f"{H} " + " ".join(HASHTAGS_EN[:8])
+        f"Lee el artículo completo / Read the full article 🔗 link en bio / link in bio\n"
+        f"{url_es}\n"
+        f"{GEO_LINE}\n\n"
+        f"{seed}"
     )
 
 def rotate_caption(cap, lang="es"):
@@ -193,13 +237,15 @@ def rotate_caption(cap, lang="es"):
             body.append(ln)
     if not tags:
         return cap
-    brand = [t for t in tags if t.lower() == H.lower()]
-    rest  = list(dict.fromkeys(t for t in tags if t.lower() != H.lower()))
-    extra = [t for t in hashtags(lang) if t not in rest]
+    # Marca SIEMPRE presente (Laura §7): #ManzanosEnterprises + #Desde1890 #Since1890.
+    always = [H] + BRAND_EXTRA
+    always_lc = {t.lower() for t in always}
+    rest  = list(dict.fromkeys(t for t in tags if t.lower() not in always_lc))
+    extra = [t for t in hashtags(lang) if t not in rest and t.lower() not in always_lc]
     random.shuffle(rest); random.shuffle(extra)
     pool = rest + extra
     k = random.randint(5, 9)
-    chosen = brand + pool[:k]
+    chosen = always + pool[:k]
     random.shuffle(chosen)
     return "\n".join(body).rstrip() + "\n\n" + " ".join(chosen)
 
@@ -218,6 +264,10 @@ def real_collect():
         base, ext = os.path.splitext(name)
         if ext.lower() not in IMG_EXT:
             continue
+        low = base.lower()
+        if any(tok in low for tok in BLOCKED_PERSON_TOKENS):
+            print(f"⛔ Saltada foto vetada por persona ({name}) — regla: no publicar a David.")
+            continue
         cap_file = os.path.join(DROP_DIR, base + ".txt")
         cap = open(cap_file, encoding="utf-8").read().strip() if os.path.exists(cap_file) else \
             f"Manzanos Enterprises\n\n{H} " + " ".join(HASHTAGS_ES[:6])
@@ -235,10 +285,16 @@ def gh_upload(local_path, remote_name):
     if probe.returncode == 0:
         try:    sha = json.loads(probe.stdout).get("sha")
         except: sha = None
+    # WHY: el cuerpo va por STDIN (--input -), NUNCA como argumento -f content=<b64>.
+    # Incidencia 2026-08-20: una foto de 899 KB da b64 de ~1,20 MB y revienta el
+    # ARG_MAX de macOS (1.048.576 B) con "[Errno 7] Argument list too long", así que
+    # toda foto real de más de ~780 KB caía SIEMPRE al fallback de marca y no se
+    # publicaba jamás. Por stdin no hay límite de tamaño.
+    body = {"message": f"Add drop photo {remote_name}", "content": content_b64}
+    if sha: body["sha"] = sha
     args = ["gh", "api", "--method", "PUT", f"/repos/{REPO}/contents/{remote_path}",
-            "-f", f"message=Add drop photo {remote_name}", "-f", f"content={content_b64}"]
-    if sha: args += ["-f", f"sha={sha}"]
-    r = subprocess.run(args, capture_output=True, text=True)
+            "--input", "-"]
+    r = subprocess.run(args, input=json.dumps(body), capture_output=True, text=True)
     if r.returncode != 0:
         raise RuntimeError(f"gh upload failed: {r.stderr.strip()[:300]}")
     return f"{RAW}/{remote_path}"
@@ -246,10 +302,14 @@ def gh_upload(local_path, remote_name):
 def archive_real(path):
     os.makedirs(DONE_DIR, exist_ok=True)
     name = os.path.basename(path)
-    os.rename(path, os.path.join(DONE_DIR, name))
+    dest = os.path.join(DONE_DIR, name)
+    os.rename(path, dest)
     cap_file = os.path.join(DROP_DIR, os.path.splitext(name)[0] + ".txt")
     if os.path.exists(cap_file):
         os.rename(cap_file, os.path.join(DONE_DIR, os.path.basename(cap_file)))
+    # WHY: devolvemos la ruta NUEVA para que quien tenga la vieja pueda reapuntar
+    # (el email resumen adjunta la foto DESPUÉS de archivarla).
+    return dest
 
 
 # ──────────────────────────────────────────────────────────────────────────
@@ -530,7 +590,11 @@ def main():
             # siguiente continúe justo donde se quedó.
             pass
         elif is_real:
-            archive_real(real_items[0][0])
+            # WHY: archive_real mueve la foto de drop/ a drop/published/, así que
+            # post_path (fijado antes de publicar) quedaba apuntando a un fichero
+            # inexistente y el email resumen perdía la imagen del post
+            # ("attach failed ... No such file or directory", visto el 2026-08-22).
+            post_path = archive_real(real_items[0][0])
             s["since_real"] = 0
         else:
             if nxt["kind"] == "blog":
@@ -571,7 +635,7 @@ def main():
            "♻️ Recuperación: el Mac estuvo apagado el día que tocaba publicar; "
            "se publicó lo pendiente al arrancar (resume la cadencia)."
            if catch_up else
-           f"Día alterno · 1 de cada {BLOG_EVERY} es destacado de blog.")
+           f"Día alterno · 1 de cada {QUOTE_EVERY} publicaciones es una frase; el resto, destacado de blog.")
         + "</p>",
         post_path, story_path, subject=subj
     )
