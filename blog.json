@@ -758,5 +758,29 @@
   "title_en": "Your Pay Is Your Strategy",
   "hook_es": "Nadie en Wells Fargo ordenó abrir 3,5 millones de cuentas falsas. Lo dijo el plan de retribución. Pagas lo que de verdad ejecutas.",
   "hook_en": "Nobody at Wells Fargo ordered 3.5 million fake accounts. The pay plan said it for them. What you pay for is what gets done."
+ },
+ {
+  "slug": "tariff-playbook-6-moves-protect-margin-when-trade-costs-rise",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "El Arancel del 15%",
+  "title_en": "The 15% Tariff Playbook",
+  "hook_es": "Un coste fijo hasta 2029 sobre el producto europeo. No arruina al exportador; reaccionar tres meses tarde con una subida tosca, sí.",
+  "hook_en": "A standing cost line through 2029 on European goods. It does not ruin exporters. Reacting three months late with a blunt price rise does."
+ },
+ {
+  "slug": "currency-risk-management-5-rules-companies-that-sell-abroad",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "La Divisa Se Come Tu Margen",
+  "title_en": "Currency Is Eating Your Margin",
+  "hook_es": "El dólar pasó de 1,0400 a 1,1756 en un año. Mismo cliente, misma factura, y un 11,5% del valor evaporado sin vender menos.",
+  "hook_en": "The dollar slid from 1.0400 to 1.1756 in one year. Same customer, same invoice, and 11.5% of the value gone without selling less."
+ },
+ {
+  "slug": "cut-costs-without-cutting-muscle-7-rules-cost-discipline",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Recortar Sin Cortar Músculo",
+  "title_en": "Cut Costs, Not Muscle",
+  "hook_es": "Circuit City despidió a 3.400 de sus mejores vendedores en un día y quebró veinte meses después. Disciplina no es autodaño.",
+  "hook_en": "Circuit City fired 3,400 of its best-paid sellers in one day and was bankrupt twenty months later. Discipline is not self-harm."
  }
 ]
