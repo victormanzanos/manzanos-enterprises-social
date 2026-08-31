@@ -782,5 +782,45 @@
   "title_en": "Cut Costs, Not Muscle",
   "hook_es": "Circuit City despidió a 3.400 de sus mejores vendedores en un día y quebró veinte meses después. Disciplina no es autodaño.",
   "hook_en": "Circuit City fired 3,400 of its best-paid sellers in one day and was bankrupt twenty months later. Discipline is not self-harm."
+ },
+ {
+  "slug": "how-to-build-an-advisory-board-private-family-company",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "El Consejo Que Te Contradice",
+  "title_en": "The Board That Contradicts You",
+  "hook_es": "La mitad de los consejos familiares son solo familia y el 53% no tiene a nadie de fuera del sector. La visión externa más barata que existe.",
+  "hook_en": "Half of family boards are family only, and 53% have no director from outside the industry. Outside perspective is the cheapest thing you can buy."
+ },
+ {
+  "slug": "how-to-negotiate-with-suppliers-7-levers-beyond-the-discount",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "El Descuento Es lo de Menos",
+  "title_en": "The Discount Is Worth Least",
+  "hook_es": "Nos dijo que su subida del 9% no era negociable. Salimos con noventa días, penalización por entrega y un tramo de volumen.",
+  "hook_en": "He said his 9% increase was not negotiable. We walked out with ninety day terms, a delivery penalty and a volume tier."
+ },
+ {
+  "slug": "ai-in-a-traditional-business-5-places-it-pays-back-in-year-one",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "IA Donde Sí Se Paga Sola",
+  "title_en": "Where AI Actually Pays Back",
+  "hook_es": "El 95% de los pilotos de IA generativa no da retorno medible. Casi todos gastan en IA y casi nadie la gasta donde paga.",
+  "hook_en": "MIT found 95% of generative AI pilots deliver no measurable return. Almost everyone spends on AI. Almost nobody spends it where it pays."
+ },
+ {
+  "slug": "own-or-lease-your-building-5-tests-before-locking-capital-in-real-estate",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "¿Ladrillo o Negocio?",
+  "title_en": "Own It or Rent It?",
+  "hook_es": "El edificio renta un 6,5%. El negocio gana un 22% sobre el capital. Nadie decidió eso nunca, y casi nadie le ha puesto precio.",
+  "hook_en": "The building yields 6.5%. The business earns 22% on capital. Nobody ever decided that, and almost no private company has priced it."
+ },
+ {
+  "slug": "how-to-negotiate-with-your-bank-6-rules-credit-terms-covenants",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "El Coste Está en los Covenants",
+  "title_en": "The Cost Hides in Covenants",
+  "hook_es": "Incumplió su covenant en su mejor año de la década: ventas un 18% arriba, margen intacto y comisión de dispensa igual.",
+  "hook_en": "A company breached its covenant in its best year in a decade. Sales up 18%, margins intact, and a waiver fee anyway."
  }
 ]
