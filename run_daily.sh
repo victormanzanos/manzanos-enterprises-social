@@ -9,5 +9,7 @@ LOG="$(pwd)/daily.log"
 {
   echo "── $(date '+%Y-%m-%d %H:%M:%S %Z') ──"
   /usr/bin/env python3 daily_engine.py 2>&1
+  # WHY: publica captions.json para que el ERP muestre el texto de cada tarjeta futura (11-sep-2026)
+  /usr/bin/env python3 export_captions.py 2>&1 || true
   echo ""
 } >> "$LOG"
