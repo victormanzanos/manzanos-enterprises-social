@@ -862,5 +862,45 @@
   "title_en": "Which Products to Kill",
   "hook_es": "Coca-Cola vio que la mitad de sus más de 400 marcas aportaba el 2% de la facturación y las eliminó. Casi ningún empresario se atreve.",
   "hook_en": "Coca-Cola found half of its 400+ brands made about 2% of revenue and killed them. Almost no owner dares make that call."
+ },
+ {
+  "slug": "export-pricing-margin-stack-6-rules-price-for-foreign-markets",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "El Precio se Calcula al Revés",
+  "title_en": "Price Backward From the Shelf",
+  "hook_es": "Una botella que sale de Rioja a buen precio llega al lineal de EE. UU. a casi cuatro veces esa cifra, y nadie ha abusado por el camino.",
+  "hook_en": "A bottle that leaves Rioja at a healthy price reaches a US shelf at roughly four times that, and nobody along the way is gouging anyone."
+ },
+ {
+  "slug": "underinsured-6-risk-transfer-rules-private-companies-business-interruption",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Infrasegurado Sin Saberlo",
+  "title_en": "Underinsured Without Knowing It",
+  "hook_es": "El 77% de las pequeñas empresas está infrasegurada. El peligro no es la póliza que olvidaste, es la que firmaste con el importe de otro año.",
+  "hook_en": "77% of small businesses are underinsured. The danger is not the policy you forgot, it is the one you bought for a number from another year."
+ },
+ {
+  "slug": "how-much-inventory-should-you-hold-6-rules-stock-cash-carrying-cost",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "El Inventario Es Caja",
+  "title_en": "Inventory Is Cash in Boxes",
+  "hook_es": "Nike llegó a 9.700 millones en existencias, un 44% más en un año, sin tener un problema de demanda. El stock de más siempre se paga con caja.",
+  "hook_en": "Nike carried $9.7 billion of inventory, up 44% in a year, without a demand problem. Excess stock is always paid for in cash."
+ },
+ {
+  "slug": "which-capital-projects-get-funded-6-rules-capex-approval-hurdle-rate",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Qué Inversiones Merecen tu Dinero",
+  "title_en": "Which Projects Deserve Your Money",
+  "hook_es": "De más de 16.000 proyectos en 136 países, solo el 0,5% cumplió presupuesto, plazo y beneficios. Todos tenían una hoja de cálculo que decía sí.",
+  "hook_en": "Of 16,000+ capital projects in 136 countries, only 0.5% hit budget, schedule and benefits. Every one had a spreadsheet that said yes."
+ },
+ {
+  "slug": "register-before-you-ship-6-trademark-rules-before-entering-foreign-market",
+  "image": "1890-finca-manzanos.jpg",
+  "title_es": "Registra Antes de Exportar",
+  "title_en": "Register Before You Ship",
+  "hook_es": "Apple pagó 60 millones de dólares por usar el nombre iPad en China, un nombre que creía haber comprado ya. Tu marca no viaja contigo.",
+  "hook_en": "Apple paid $60 million to use the name iPad in China, a name it believed it already owned. Your trademark does not travel with you."
  }
 ]
