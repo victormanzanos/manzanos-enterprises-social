@@ -7,3 +7,13 @@ token-logs/
 drop/
 __pycache__/
 .DS_Store
+# Estrategia de contenidos interna — NO subir al repo público
+CONTENT_BRIEF.md
+IMPLEMENTACION.md
+# Estado local de la regla de 360 dias (17-sep-2026): no se publica en el repo
+image_history.json
+image_library.json
+library/
+swap/
+*.bak-*
+library_fetch.log

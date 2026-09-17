@@ -28,6 +28,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.image import MIMEImage
 
 import content
+import image_ledger as ledger
 
 # ──────────────────────────────────────────────────────────────────────────
 # CONFIG
@@ -256,7 +257,7 @@ def rotate_caption(cap, lang="es"):
 def real_collect():
     if not os.path.isdir(DROP_DIR):
         return []
-    out = []
+    out, seen_hashes = [], []
     for name in sorted(os.listdir(DROP_DIR)):
         path = os.path.join(DROP_DIR, name)
         if not os.path.isfile(path):
@@ -268,17 +269,39 @@ def real_collect():
         if any(tok in low for tok in BLOCKED_PERSON_TOKENS):
             print(f"⛔ Saltada foto vetada por persona ({name}) — regla: no publicar a David.")
             continue
+        # Regla de Victor (17-sep-2026): ninguna imagen se repite en < 360 dias.
+        # WHY: la foto de JMC salio 5 veces en un mes porque volvia al drop con otro
+        # nombre; comparar por NOMBRE no sirve, se compara el contenido (sha1 + aHash).
+        try:
+            if ledger.used_recently(path):
+                print(f"♻️ Saltada {name}: ya publicada hace menos de {ledger.NO_REPEAT_DAYS} dias.")
+                continue
+            h = ledger.ahash(path)
+            if any(ledger.dist(h, k) <= ledger.AHASH_MAX_DIST for k in seen_hashes):
+                print(f"♻️ Saltada {name}: duplicada de otra foto del drop.")
+                continue
+            seen_hashes.append(h)
+        except Exception as e:
+            print(f"⚠️ No pude leer {name} ({e}); se salta.")
+            continue
         cap_file = os.path.join(DROP_DIR, base + ".txt")
-        cap = open(cap_file, encoding="utf-8").read().strip() if os.path.exists(cap_file) else \
-            f"Manzanos Enterprises\n\n{H} " + " ".join(HASHTAGS_ES[:6])
+        if not os.path.exists(cap_file):
+            # WHY: sin .txt salia un pie generico sin division ni CTA; mejor no publicarla.
+            print(f"⚠️ Saltada {name}: falta {base}.txt con el caption.")
+            continue
+        cap = open(cap_file, encoding="utf-8").read().strip()
         out.append((path, cap))
     return out
 
 import base64, hashlib
-def gh_upload(local_path, remote_name):
+def gh_upload(local_path, remote_name, remote_dir="media"):
     with open(local_path, "rb") as f:
         content_b64 = base64.b64encode(f.read()).decode()
-    remote_path = f"drop/{remote_name}"
+    # WHY (17-sep-2026): antes se subia a drop/ del repo. drop/ esta en .gitignore pero
+    # los ficheros subidos por la API quedaban TRACKEADOS, y el siguiente git pull de la
+    # rutina de refresco los traia de vuelta al drop/ local con el sufijo de hash: la
+    # misma foto se volvia a publicar una y otra vez. media/ no lo lee nadie en local.
+    remote_path = f"{remote_dir}/{remote_name}"
     sha = None
     probe = subprocess.run(["gh", "api", f"/repos/{REPO}/contents/{remote_path}"],
                            capture_output=True, text=True)
@@ -310,6 +333,43 @@ def archive_real(path):
     # WHY: devolvemos la ruta NUEVA para que quien tenga la vieja pueda reapuntar
     # (el email resumen adjunta la foto DESPUÉS de archivarla).
     return dest
+
+
+def ensure_fresh_blog_bg(nxt):
+    """Devuelve (nxt, ruta_fondo). Si el fondo de la tarjeta se uso hace < 360 dias,
+    renderiza la tarjeta con una foto libre de la biblioteca, la sube a media/cards/
+    y apunta nxt a esas URLs. Persiste el cambio de imagen en blog.json."""
+    import make_me
+    idx, lang = nxt["idx"], nxt["lang"]
+    b = content.BLOG[idx]
+    bg = make_me.resolve_image(b["image"])
+    if not os.path.exists(bg) or not ledger.used_recently(bg):
+        return nxt, bg
+    taken = [make_me.resolve_image(x["image"]) for x in content.BLOG]
+    free = ledger.library_free(exclude_paths=taken)
+    if not free:
+        print(f"⚠️ Fondo de b{idx:02d} repetido (<{ledger.NO_REPEAT_DAYS} dias) y la biblioteca "
+              f"no tiene fotos libres: se publica igual. Ejecuta fetch_library_images.py.")
+        return nxt, bg
+    row, path = free[0]
+    b["image"] = "library/" + row["file"]
+    print(f"♻️ Fondo de b{idx:02d} repetido: se cambia a {b['image']}")
+    swap = os.path.join(LOCAL, "swap")
+    os.makedirs(swap, exist_ok=True)
+    h = hashlib.sha1(row["file"].encode()).hexdigest()[:8]
+    pn, sn = f"b{idx:02d}-{lang}-{h}.jpg", f"b{idx:02d}-{lang}-{h}-st.jpg"
+    make_me.save(make_me.make_blog_card(idx, lang, story=False), swap, pn)
+    make_me.save(make_me.make_blog_card(idx, lang, story=True), swap, sn)
+    nxt = dict(nxt)
+    nxt["post_url"] = gh_upload(os.path.join(swap, pn), pn, "media/cards")
+    nxt["story_url"] = gh_upload(os.path.join(swap, sn), sn, "media/cards")
+    nxt["post_file"], nxt["story_file"] = f"swap/{pn}", f"swap/{sn}"
+    time.sleep(8)  # WHY: raw.githubusercontent tarda unos segundos en servir un fichero nuevo
+    blog = json.load(open(os.path.join(LOCAL, "blog.json"), encoding="utf-8"))
+    blog[idx]["image"] = b["image"]
+    with open(os.path.join(LOCAL, "blog.json"), "w", encoding="utf-8") as f:
+        json.dump(blog, f, ensure_ascii=False, indent=1)
+    return nxt, path
 
 
 # ──────────────────────────────────────────────────────────────────────────
@@ -547,6 +607,18 @@ def main():
             cap = ov
             print("HUB: caption corregida desde el ERP.")
 
+    # ── Regla de 360 dias en el FONDO de la tarjeta de blog ─────────────────
+    # WHY: cada tarjeta de blog lleva una foto de fondo. Si esa foto ya salio hace
+    # menos de 360 dias (en otra tarjeta o como foto real), se re-renderiza la tarjeta
+    # con una imagen libre de la biblioteca aprobada. Red de seguridad: lo normal es
+    # que assign_card_images.py ya haya dado a cada tarjeta una foto unica.
+    bg_path = None
+    if not is_special and not do_real and nxt["kind"] == "blog":
+        try:
+            nxt, bg_path = ensure_fresh_blog_bg(nxt)
+        except Exception as e:
+            print("⚠️ Chequeo de fondo 360 dias fallo (se publica la tarjeta tal cual):", e)
+
     # ── POST ──────────────────────────────────────────────────────────────
     is_real = False
     post_url, post_path = nxt["post_url"], os.path.join(LOCAL, nxt["post_file"])
@@ -604,6 +676,17 @@ def main():
             s["post"] += 1
             s["since_real"] = s.get("since_real", 0) + 1
     save_state(s)
+
+    # Registro de imagenes publicadas (regla de 360 dias). Va DESPUES de save_state:
+    # un fallo aqui nunca debe provocar una republicacion.
+    if post_ok and not is_special:
+        try:
+            if is_real:
+                ledger.record(post_path, "real", os.path.basename(post_path))
+            elif nxt["kind"] == "blog" and bg_path and os.path.exists(bg_path):
+                ledger.record(bg_path, "blog-bg", f"b{nxt['idx']:02d}")
+        except Exception as e:
+            print("⚠️ No se pudo anotar la imagen en image_history.json:", e)
 
     plink = pr.get("permalink") or ("ERROR: " + json.dumps(pr)[:220])
     sok   = "publicada ✅" if story_ok else ("ERROR: " + json.dumps(sr)[:220])

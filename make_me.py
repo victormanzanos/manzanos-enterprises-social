@@ -275,13 +275,27 @@ def make_quote_card(idx, lang, story=False):
     return img
 
 
+def resolve_image(name):
+    """Ruta real de la imagen de fondo de una tarjeta.
+    WHY (17-sep-2026): antes solo se aceptaba un fichero de hero/, por eso 73 de 113
+    tarjetas caian a la misma foto. Ahora vale: nombre suelto (hero/), ruta web
+    "/images/blog/x.jpg" (portada propia del articulo) o "library/x.jpg" (banco)."""
+    if os.path.isabs(name) and os.path.exists(name):
+        return name
+    if name.startswith("/images/"):
+        return os.path.join(os.path.dirname(WEB), name.lstrip("/"))
+    if name.startswith("library/"):
+        return os.path.join(LOCAL, name)
+    return os.path.join(SOURCE_HERO, name)
+
+
 def make_blog_card(idx, lang, story=False):
     b = content.BLOG[idx]
     title = b["title_es"] if lang == "es" else b["title_en"]
     hook  = b["hook_es"] if lang == "es" else b["hook_en"]
     w, h = (STORY_W, STORY_H) if story else (POST_W, POST_H)
 
-    src = os.path.join(SOURCE_HERO, b["image"])
+    src = resolve_image(b["image"])
     if os.path.exists(src):
         img = darken(cover(Image.open(src).convert("RGB"), w, h), top=0.40, bottom=0.90)
     else:
