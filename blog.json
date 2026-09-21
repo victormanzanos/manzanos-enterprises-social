@@ -145,7 +145,7 @@
  },
  {
   "slug": "15-lessons-learned-building-businesses-15-years",
-  "image": "library/business-53b5c66aca.jpg",
+  "image": "library/rioja-a5f860376c.jpg",
   "title_es": "15 Lecciones Aprendidas Construyendo…",
   "title_en": "15 Lessons Learned From Building Businesses…",
   "hook_es": "Después de 15 años construyendo, adquiriendo y haciendo crecer negocios, estas son las lecciones que han dado forma a nuestra filosofía emprendedora.",
@@ -902,5 +902,45 @@
   "title_en": "Register Before You Ship",
   "hook_es": "Apple pagó 60 millones de dólares por usar el nombre iPad en China, un nombre que creía haber comprado ya. Tu marca no viaja contigo.",
   "hook_en": "Apple paid $60 million to use the name iPad in China, a name it believed it already owned. Your trademark does not travel with you."
+ },
+ {
+  "slug": "annual-budget-vs-rolling-forecast-6-rules-for-planning-that-works",
+  "image": "/images/blog/annual-budget-review-meeting-financial-charts.jpg",
+  "title_es": "Tu Presupuesto Caduca en Marzo",
+  "title_en": "Your Budget Expires in March",
+  "hook_es": "Handelsbanken dejó de presupuestar en los setenta y supera la rentabilidad de sus rivales cada año desde 1972. Planifica para la realidad.",
+  "hook_en": "Handelsbanken stopped budgeting in the 1970s and has beaten its rivals' return on equity every year since 1972. Plan for reality."
+ },
+ {
+  "slug": "letter-of-intent-7-terms-to-negotiate-before-exclusivity-acquisition",
+  "image": "/images/blog/letter-of-intent-signing-fountain-pen.jpg",
+  "title_es": "Negocia la Carta Como si Obligara",
+  "title_en": "Negotiate the LOI Like It Binds",
+  "hook_es": "Un apretón de manos sobre un acuerdo preliminar le costó a Texaco 10.530 millones de dólares. Lo que no escribes antes de la exclusividad lo pagas después.",
+  "hook_en": "A handshake on a preliminary deal cost Texaco a $10.53 billion verdict. What you leave unwritten before exclusivity, you pay for later."
+ },
+ {
+  "slug": "delegation-of-authority-matrix-6-rules-who-can-sign-what",
+  "image": "/images/blog/delegation-of-authority-signing-approval.jpg",
+  "title_es": "¿Quién Puede Firmar Qué?",
+  "title_en": "Who Can Sign What?",
+  "hook_es": "Un solo operador que podía hacer y registrar sus propias operaciones hundió un banco de 233 años. Quien aprueba no debería ser quien paga.",
+  "hook_en": "One trader who could both make and record his own trades sank a 233-year-old bank. Whoever approves should never be the one who pays."
+ },
+ {
+  "slug": "test-before-you-bet-6-rules-pilot-program-before-full-launch",
+  "image": "/images/blog/pilot-test-product-samples-tray.jpg",
+  "title_es": "Prueba Antes de Apostar",
+  "title_en": "Test Before You Bet",
+  "hook_es": "Target se saltó el piloto y cerró 133 tiendas en Canadá. Un buen piloto cuesta poco y te dice la verdad antes de que te haga daño.",
+  "hook_en": "Target skipped the pilot and closed 133 Canadian stores. A good pilot costs little and tells you the truth before it can hurt you."
+ },
+ {
+  "slug": "founder-led-sales-6-rules-when-to-hire-first-salesperson-and-hand-off",
+  "image": "/images/blog/founder-led-sales-closing-deal.jpg",
+  "title_es": "Deja de Ser tu Mejor Vendedor",
+  "title_en": "Stop Being Your Best Salesperson",
+  "hook_es": "El primer fichaje comercial de un fundador suele fallar por una razón: el proceso de venta sigue en su cabeza. Escríbelo antes de traspasarlo.",
+  "hook_en": "A founder's first sales hire usually fails for one reason: the sales process still lives in the founder's head. Write it down before handing it off."
  }
 ]
