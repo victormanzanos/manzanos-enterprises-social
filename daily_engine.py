@@ -430,9 +430,9 @@ def publish_image(url, caption=None, story=False):
     mid = r.get("id")
     if not mid:
         return {"error": r}
-    return api(mid, {"fields": "permalink", "access_token": TOK}, "GET")
-
-
+    _pl = api(mid, {"fields": "permalink", "access_token": TOK}, "GET")
+    _pl.setdefault("id", mid)  # WHY: publicado aunque falle leer el permalink; sin id se republicaria
+    return _pl
 # ──────────────────────────────────────────────────────────────────────────
 # EMAIL RESUMEN
 # ──────────────────────────────────────────────────────────────────────────
@@ -641,19 +641,29 @@ def main():
     else:
         pr = publish_image(post_url, caption=cap)
 
-    time.sleep(random.randint(20, 120))  # gap humano antes del story
-    # WHY: la story NUNCA debe tumbar el guardado de estado tras un feed ya publicado.
-    # Incidencia 2026-07-01: un ConnectionResetError en la story propagó y save_state()
-    # no corrió → last_date sin avanzar → repetición de frase. api() ya reintenta;
-    # esto es el cinturón de seguridad final ante cualquier excepción inesperada.
-    try:
-        sr = publish_image(nxt["story_url"], story=True)
-    except Exception as e:
-        print("Story falló (no crítico, se continúa y se guarda estado):", e)
-        sr = {"error": str(e)}
+    # WHY (2-oct-2026): en @palaciodemanzanos el post fallo en 3 franjas y cada franja
+    # publico OTRA story (3 el mismo dia). La story solo sale si el post ha salido,
+    # y una sola vez al dia (story_date).
+    if not bool(pr.get("permalink") or pr.get("id")):
+        sr = {"error": "story no publicada: el post ha fallado (se reintenta en la siguiente franja)"}
+    elif s.get("story_date") == today_s:
+        sr = {"error": "story ya publicada hoy"}
+    else:
+        time.sleep(random.randint(20, 120))  # gap humano antes del story
+        # WHY: la story NUNCA debe tumbar el guardado de estado tras un feed ya publicado.
+        # Incidencia 2026-07-01: un ConnectionResetError en la story propagó y save_state()
+        # no corrió → last_date sin avanzar → repetición de frase. api() ya reintenta;
+        # esto es el cinturón de seguridad final ante cualquier excepción inesperada.
+        try:
+            sr = publish_image(nxt["story_url"], story=True)
+        except Exception as e:
+            print("Story falló (no crítico, se continúa y se guarda estado):", e)
+            sr = {"error": str(e)}
 
-    post_ok  = bool(pr.get("permalink"))
+    post_ok  = bool(pr.get("permalink") or pr.get("id"))
     story_ok = bool(sr.get("permalink") or sr.get("id"))
+    if story_ok:
+        s["story_date"] = today_s; save_state(s)
     if post_ok:
         s["last_date"] = today_s
         if is_special:
