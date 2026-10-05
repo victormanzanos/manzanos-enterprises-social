@@ -177,7 +177,7 @@
  },
  {
   "slug": "managing-business-vs-building-entrepreneurial-organization",
-  "image": "library/business-15ec3e1e49.jpg",
+  "image": "library/rioja-f4e4c7befb.jpg",
   "title_es": "La Diferencia Entre Gestionar un Negocio…",
   "title_en": "The Difference Between Managing a Business…",
   "hook_es": "El cambio más importante que un emprendedor puede hacer es pasar de gestionar operaciones diarias a construir sistemas, líderes y una cultura que…",
@@ -185,7 +185,7 @@
  },
  {
   "slug": "building-businesses-across-borders-europe-to-usa",
-  "image": "library/business-54be2fc483.jpg",
+  "image": "library/rioja-9e3f23a94f.jpg",
   "title_es": "Construyendo Negocios Más Allá…",
   "title_en": "Building Businesses Across Borders",
   "hook_es": "La expansión internacional es uno de los viajes más gratificantes y desafiantes que un emprendedor puede emprender.",
@@ -982,5 +982,45 @@
   "title_en": "The Price Is Set After Signing",
   "hook_es": "En una operación con precio cero, el ajuste de capital circulante desató una reclamación de 2.000 millones. Fija el objetivo antes de firmar.",
   "hook_en": "In one deal priced at zero, the working capital adjustment triggered a $2 billion claim. Set the peg before you sign."
+ },
+ {
+  "slug": "buy-sell-agreement-6-rules-co-owners-family-business-death-divorce-exit",
+  "image": "/images/blog/buy-sell-agreement-co-owners-handshake.jpg",
+  "title_es": "El pacto que nadie firma",
+  "title_en": "The Pact Nobody Signs",
+  "hook_es": "Dos hermanos se aseguraron por 3,5 millones y aun así pagaron casi 900.000 de más a Hacienda. Escribe el pacto entre socios hoy.",
+  "hook_en": "Two brothers insured each other for $3.5 million and still overpaid the IRS by nearly $900,000. Write the buy-sell agreement today."
+ },
+ {
+  "slug": "how-to-terminate-foreign-distributor-agreement-6-rules",
+  "image": "/images/blog/distributor-termination-contract-negotiation.jpg",
+  "title_es": "Despedir a un distribuidor",
+  "title_en": "Firing a Distributor",
+  "hook_es": "Un fabricante quiso cesar a su distribuidor de 40 años con 30 días de preaviso y un tribunal paralizó la salida. Seis reglas antes de la carta.",
+  "hook_en": "A maker tried to drop its dealer of 40 years on 30 days' notice and a court froze the exit. Six rules before you send the letter."
+ },
+ {
+  "slug": "ebitda-add-backs-6-rules-quality-of-earnings-before-you-buy",
+  "image": "/images/blog/quality-of-earnings-magnifying-glass-financial-review.jpg",
+  "title_es": "Cada add-back se paga seis veces",
+  "title_en": "Every Add-Back Costs Six Times",
+  "hook_es": "WeWork perdió 933 millones y enseñó un beneficio de 233. A 6x, cada ajuste que aceptas lo pagas seis veces. Pruébalos antes.",
+  "hook_en": "WeWork lost $933 million and showed a $233 million profit. At 6x, every add-back you accept is paid six times. Test them first."
+ },
+ {
+  "slug": "personal-guarantee-6-rules-before-you-sign-business-loan",
+  "image": "/images/blog/personal-guarantee-signing-loan-documents.jpg",
+  "title_es": "Tu casa detrás del préstamo",
+  "title_en": "Your House Behind the Loan",
+  "hook_es": "Tu sociedad deja de protegerte justo donde firmas con tu nombre. Seis reglas antes de dar un aval personal.",
+  "hook_en": "Your company stops protecting you exactly where you sign your own name. Six rules before you give a personal guarantee."
+ },
+ {
+  "slug": "first-country-manager-6-rules-hiring-abroad-international-expansion",
+  "image": "/images/blog/first-country-manager-hire-abroad-skyline.jpg",
+  "title_es": "Tu primer fichaje fuera",
+  "title_en": "Your First Hire Abroad",
+  "hook_es": "Walmart tuvo cuatro responsables en Alemania en cuatro años y acabó vendiendo sus 85 tiendas. Tu primer fichaje decide el mercado.",
+  "hook_en": "Walmart had four heads in Germany in four years, then sold its 85 stores and left. Your first hire abroad decides the market."
  }
 ]
