@@ -29,6 +29,7 @@ from email.mime.image import MIMEImage
 
 import content
 import image_ledger as ledger
+import ig_guard   # WHY: fail-closed; ver ig_guard.py (duplicados desde otro ordenador, 5-oct-2026)
 
 # ──────────────────────────────────────────────────────────────────────────
 # CONFIG
@@ -294,6 +295,13 @@ def real_collect():
     return out
 
 import base64, hashlib
+# WHY: launchd corre con PATH=/usr/bin:/bin:/usr/sbin:/sbin y gh vive en /usr/local/bin
+# (o /opt/homebrew/bin). Con "gh" a secas la subida de fotos reales, de fondos nuevos
+# y de captions.json muere con FileNotFoundError (Golf Lover's Day de agolfcars, 4-oct-2026).
+import shutil
+GH = (shutil.which("gh") or next((c for c in ("/usr/local/bin/gh", "/opt/homebrew/bin/gh")
+                                  if os.path.exists(c)), "gh"))
+
 def gh_upload(local_path, remote_name, remote_dir="media"):
     with open(local_path, "rb") as f:
         content_b64 = base64.b64encode(f.read()).decode()
@@ -303,7 +311,7 @@ def gh_upload(local_path, remote_name, remote_dir="media"):
     # misma foto se volvia a publicar una y otra vez. media/ no lo lee nadie en local.
     remote_path = f"{remote_dir}/{remote_name}"
     sha = None
-    probe = subprocess.run(["gh", "api", f"/repos/{REPO}/contents/{remote_path}"],
+    probe = subprocess.run([GH, "api", f"/repos/{REPO}/contents/{remote_path}"],
                            capture_output=True, text=True)
     if probe.returncode == 0:
         try:    sha = json.loads(probe.stdout).get("sha")
@@ -315,7 +323,7 @@ def gh_upload(local_path, remote_name, remote_dir="media"):
     # publicaba jamás. Por stdin no hay límite de tamaño.
     body = {"message": f"Add drop photo {remote_name}", "content": content_b64}
     if sha: body["sha"] = sha
-    args = ["gh", "api", "--method", "PUT", f"/repos/{REPO}/contents/{remote_path}",
+    args = [GH, "api", "--method", "PUT", f"/repos/{REPO}/contents/{remote_path}",
             "--input", "-"]
     r = subprocess.run(args, input=json.dumps(body), capture_output=True, text=True)
     if r.returncode != 0:
@@ -606,6 +614,41 @@ def main():
         if ov:
             cap = ov
             print("HUB: caption corregida desde el ERP.")
+
+    # ── Guardia anti-duplicados entre ordenadores (5-oct-2026) ─────────────
+    # WHY: del 1 al 5-oct otro ordenador con copia de este motor republico el post de
+    # dos dias antes: cada maquina tiene su propio .daily_state.json. Dos redes que no
+    # dependen del estado local: solo publica el Mac designado, y el feed REAL manda.
+    # Cubre TODAS las rutas (dia especial, foto real y tarjeta de marca), porque las
+    # tres publican en el bloque POST de abajo. Si para aqui no sale tampoco la story.
+    ensure_creds()
+    ok, why = ig_guard.host_ok()
+    if not ok:
+        print(f"⛔ GUARD host: {why}. No publico.")
+        return
+    # Foto real: su caption puede repetirse legitimamente → solo "ya hay post hoy".
+    why = ig_guard.feed_block(IGID, TOK, None if do_real else cap, base=BASE)
+    if why:
+        print(f"⛔ GUARD feed: {why}. No publico.")
+        if not do_real and not is_special and "mismo texto" in why:
+            # La tarjeta ya salio (desde otro ordenador): se avanza la rotacion para
+            # que la franja siguiente coja una nueva, y su fondo cuenta para los 360
+            # dias. NO se marca last_date: hoy sigue pendiente de publicar.
+            if nxt["kind"] == "blog":
+                s["blog_idx"] += 1
+                try:
+                    import make_me
+                    bg = make_me.resolve_image(content.BLOG[nxt["idx"]]["image"])
+                    if os.path.exists(bg):
+                        ledger.record(bg, "blog-bg", f"b{nxt['idx']:02d}")
+                except Exception as e:
+                    print("⚠️ No se pudo anotar el fondo en image_history.json:", e)
+            else:
+                s["quote_idx"] += 1
+            s["post"] += 1
+            s["since_real"] = s.get("since_real", 0) + 1
+            save_state(s)
+        return
 
     # ── Regla de 360 dias en el FONDO de la tarjeta de blog ─────────────────
     # WHY: cada tarjeta de blog lleva una foto de fondo. Si esa foto ya salio hace

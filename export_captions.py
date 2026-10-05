@@ -42,13 +42,13 @@ def remote_current():
 def upload(text):
     remote_path = "captions.json"
     sha = None
-    probe = subprocess.run(["gh", "api", f"/repos/{E.REPO}/contents/{remote_path}"], capture_output=True, text=True)
+    probe = subprocess.run([E.GH, "api", f"/repos/{E.REPO}/contents/{remote_path}"], capture_output=True, text=True)
     if probe.returncode == 0:
         try: sha = json.loads(probe.stdout).get("sha")
         except Exception: sha = None
     body = {"message": "Update captions.json (ERP social hub)", "content": base64.b64encode(text.encode()).decode()}
     if sha: body["sha"] = sha
-    r = subprocess.run(["gh", "api", "--method", "PUT", f"/repos/{E.REPO}/contents/{remote_path}", "--input", "-"],
+    r = subprocess.run([E.GH, "api", "--method", "PUT", f"/repos/{E.REPO}/contents/{remote_path}", "--input", "-"],
                        input=json.dumps(body), capture_output=True, text=True)
     if r.returncode != 0:
         raise RuntimeError("gh upload failed: " + r.stderr.strip()[:300])
