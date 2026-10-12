@@ -193,7 +193,7 @@
  },
  {
   "slug": "buy-and-grow-companies-instead-of-starting-from-scratch",
-  "image": "hero-clean.jpg",
+  "image": "library/business-53b5c66aca.jpg",
   "title_es": "Cómo los Emprendedores Pueden Comprar…",
   "title_en": "How Entrepreneurs Can Buy and Grow Companies…",
   "hook_es": "El emprendimiento por adquisición es una de las estrategias más poderosas e infrautilizadas para construir riqueza y crear valor.",
@@ -201,7 +201,7 @@
  },
  {
   "slug": "from-family-business-to-global-growth",
-  "image": "library/stone-decded0d97.jpg",
+  "image": "library/stone-58daa85ea3.jpg",
   "title_es": "De Negocio Familiar a Crecimiento Global",
   "title_en": "From Family Business to Global Growth",
   "hook_es": "Cómo un negocio familiar de quinta generación se transformó de una pequeña operación regional en un holding internacional diversificado generando más…",
@@ -1022,5 +1022,45 @@
   "title_en": "Your First Hire Abroad",
   "hook_es": "Walmart tuvo cuatro responsables en Alemania en cuatro años y acabó vendiendo sus 85 tiendas. Tu primer fichaje decide el mercado.",
   "hook_en": "Walmart had four heads in Germany in four years, then sold its 85 stores and left. Your first hire abroad decides the market."
+ },
+ {
+  "slug": "retention-bonus-6-rules-keep-key-employees-after-acquisition",
+  "image": "/images/blog/retention-bonus-acquisition-team-signing.jpg",
+  "title_es": "Compraste personas, no papeles",
+  "title_en": "You Bought People, Not Paper",
+  "hook_es": "Un tercio de los empleados adquiridos se va en el primer año. Seis reglas para retener a la gente por la que pagaste.",
+  "hook_en": "A third of acquired employees leave within a year. Six rules to keep the people you actually paid for."
+ },
+ {
+  "slug": "product-recall-plan-6-rules-protect-your-brand",
+  "image": "/images/blog/product-recall-plan-bottle-quality-inspection.jpg",
+  "title_es": "La retirada se decide antes",
+  "title_en": "Recalls Are Decided Early",
+  "hook_es": "Un filtro sin cambiar obligó a Perrier a retirar 160 millones de botellas. Tu plan de retirada se escribe antes de la crisis.",
+  "hook_en": "One overdue filter forced Perrier to pull 160 million bottles. Your recall plan is written before the crisis, not during it."
+ },
+ {
+  "slug": "reference-checks-6-rules-before-you-hire-senior-executive",
+  "image": "/images/blog/executive-reference-check-phone-call-notes.jpg",
+  "title_es": "Comprueba antes de fichar",
+  "title_en": "Check Before You Hire",
+  "hook_es": "Yahoo perdió a su CEO a los cuatro meses por un título que nadie comprobó. Seis reglas para unas referencias de verdad.",
+  "hook_en": "Yahoo lost its CEO four months in over a degree nobody checked. Six rules for reference checks that actually work."
+ },
+ {
+  "slug": "fair-not-equal-6-rules-family-business-inheritance-active-inactive-heirs",
+  "image": "/images/blog/senior-owner-signing-estate-plan-succession.jpg",
+  "title_es": "Justo no es igual",
+  "title_en": "Fair Is Not Equal",
+  "hook_es": "Repartir la empresa familiar a partes iguales parece justo y a menudo empieza la pelea. Seis reglas para heredar bien.",
+  "hook_en": "Splitting a family company into equal shares feels fair and often starts the fight. Six rules to pass it on well."
+ },
+ {
+  "slug": "incoterms-6-rules-choose-exw-fca-fob-cif-ddp-export-quote",
+  "image": "/images/blog/incoterms-hamburg-container-port-ships.jpg",
+  "title_es": "Tres letras deciden quién paga",
+  "title_en": "Three Letters Decide Who Pays",
+  "hook_es": "Cuando el Ever Given bloqueó Suez, el Incoterm de cada contrato decidió quién pagaba. Seis reglas para tu próxima oferta.",
+  "hook_en": "When the Ever Given blocked Suez, the Incoterm on each contract decided who paid. Six rules for your next export quote."
  }
 ]
