@@ -209,7 +209,7 @@
  },
  {
   "slug": "capital-allocation-most-important-skill-entrepreneurs",
-  "image": "library/business-c05acdda93.jpg",
+  "image": "library/business-fda228ebfc.jpg",
   "title_es": "Asignación de Capital",
   "title_en": "Capital Allocation",
   "hook_es": "Cómo despliegas el capital es la decisión más importante que tomarás como empresario.",
@@ -217,7 +217,7 @@
  },
  {
   "slug": "brand-building-how-to-create-a-brand-that-endures",
-  "image": "library/build-83134244bc.jpg",
+  "image": "library/build-d8150e6e27.jpg",
   "title_es": "Construcción de Marca",
   "title_en": "Brand Building",
   "hook_es": "Una marca poderosa no se construye en una campaña — se construye a lo largo de décadas mediante acción consistente, narrativa auténtica y un…",
@@ -1062,5 +1062,45 @@
   "title_en": "Three Letters Decide Who Pays",
   "hook_es": "Cuando el Ever Given bloqueó Suez, el Incoterm de cada contrato decidió quién pagaba. Seis reglas para tu próxima oferta.",
   "hook_en": "When the Ever Given blocked Suez, the Incoterm on each contract decided who paid. Six rules for your next export quote."
+ },
+ {
+  "slug": "capex-approval-6-rules-hurdle-rate-npv-payback-capital-investment",
+  "image": "/images/blog/capital-investment-bottling-line-capex-decision.jpg",
+  "title_es": "Antes de firmar el capex",
+  "title_en": "Before You Sign the Capex",
+  "hook_es": "Solo el 0,5% de 16.000 proyectos cumplió presupuesto, plazo y beneficios. Seis reglas para aprobar una inversión que aguante.",
+  "hook_en": "Only 0.5% of 16,000 projects hit budget, schedule and benefits. Six rules to approve an investment that holds up."
+ },
+ {
+  "slug": "single-source-supplier-risk-6-rules-dual-sourcing-before-shortage",
+  "image": "/images/blog/dual-sourcing-glass-bottle-production-line.jpg",
+  "title_es": "A un proveedor de parar",
+  "title_en": "One Supplier From Shutdown",
+  "hook_es": "Un incendio de 10 minutos golpeó a Nokia y a Ericsson. Solo Nokia tenía plan. Encuentra el proveedor que puede pararte.",
+  "hook_en": "A 10-minute fire hit Nokia and Ericsson alike. Only Nokia had a plan. Find the supplier that could stop your company."
+ },
+ {
+  "slug": "phantom-equity-6-rules-give-key-managers-a-stake-without-shares",
+  "image": "/images/blog/phantom-equity-stacking-coins-stake-in-growth.jpg",
+  "title_es": "Participación sin ceder acciones",
+  "title_en": "A Stake Without Shares",
+  "hook_es": "Tu mejor directivo quiere una participación y tu pacto de socios dice que no. La phantom equity lo resuelve con seis reglas.",
+  "hook_en": "Your best manager wants a stake and your shareholders' agreement says no. Phantom equity solves it with six rules."
+ },
+ {
+  "slug": "trade-show-roi-6-rules-make-international-trade-fair-pay-off",
+  "image": "/images/blog/international-trade-fair-exhibition-hall.jpg",
+  "title_es": "¿Merece la pena el stand?",
+  "title_en": "Is the Booth Worth It?",
+  "hook_es": "ProWein reunió a unos nueve compradores por expositor. Lo que ganas en una feria se decide antes de reservar y 48 horas después.",
+  "hook_en": "ProWein drew about nine buyers per exhibitor. What a trade fair wins you is decided before you book and in the 48 hours after."
+ },
+ {
+  "slug": "protect-family-business-shares-divorce-6-rules-prenup-before-wedding",
+  "image": "/images/blog/family-business-shares-divorce-ring-lawyer-desk.jpg",
+  "title_es": "Tu boda y tu empresa",
+  "title_en": "Your Wedding, Your Company",
+  "hook_es": "Un divorcio puede partir la empresa familiar. Seis reglas para proteger las acciones antes de la boda, no después.",
+  "hook_en": "A divorce can split the family company. Six rules to protect the shares before the wedding, not after."
  }
 ]
