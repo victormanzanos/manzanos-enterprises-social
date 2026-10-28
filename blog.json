@@ -1102,5 +1102,45 @@
   "title_en": "Your Wedding, Your Company",
   "hook_es": "Un divorcio puede partir la empresa familiar. Seis reglas para proteger las acciones antes de la boda, no después.",
   "hook_en": "A divorce can split the family company. Six rules to protect the shares before the wedding, not after."
+ },
+ {
+  "slug": "acquisition-indemnification-6-rules-escrow-holdback-reps-warranties",
+  "image": "/images/blog/acquisition-indemnification-escrow-contract-signing.jpg",
+  "title_es": "Cobrar después del cierre",
+  "title_en": "Collect After Closing",
+  "hook_es": "Casi todo comprador descubre los problemas cuando el dinero ya se movió. Depósito, retención o seguro: seis reglas para poder cobrar.",
+  "hook_en": "Most buyers find the problems after the money moves. Escrow, holdback or insurance: six rules that decide whether you can still collect."
+ },
+ {
+  "slug": "cyberattack-plan-6-rules-ransomware-business-continuity-before-it-hits",
+  "image": "/images/blog/cyberattack-plan-server-racks-data-center.jpg",
+  "title_es": "Cuando las pantallas se apagan",
+  "title_en": "When the Screens Go Black",
+  "hook_es": "Un ciberataque paró las fábricas de Jaguar Land Rover cinco semanas. El rescate casi nunca es el coste real: la parada sí.",
+  "hook_en": "A cyberattack shut Jaguar Land Rover's factories for five weeks. The ransom is rarely the real cost. Downtime is."
+ },
+ {
+  "slug": "branch-or-subsidiary-6-rules-legal-structure-expand-abroad",
+  "image": "/images/blog/foreign-subsidiary-city-skyline-office-towers-dusk.jpg",
+  "title_es": "¿Sucursal o filial?",
+  "title_en": "Branch or Subsidiary?",
+  "hook_es": "HSBC compró la filial británica de SVB por una libra porque era filial, no sucursal. La estructura decide quién paga.",
+  "hook_en": "HSBC bought SVB's UK arm for £1 because it was a subsidiary, not a branch. Your structure abroad decides who pays."
+ },
+ {
+  "slug": "trade-credit-6-rules-customer-credit-limits-payment-terms-bad-debt",
+  "image": "/images/blog/trade-credit-paid-due-invoices.jpg",
+  "title_es": "Vender a crédito es prestar",
+  "title_en": "Credit Is a Loan",
+  "hook_es": "Con un margen del 10%, cada dólar impagado te cuesta diez de ventas. Seis reglas para fijar límites antes del impagado.",
+  "hook_en": "At a 10% margin, every dollar of bad debt costs you ten dollars of sales. Six rules to set limits before it hits."
+ },
+ {
+  "slug": "key-employee-resigns-6-rules-counteroffer-stay-interviews-retention",
+  "image": "/images/blog/key-employee-resigns-leaving-office-with-box.jpg",
+  "title_es": "Tu mejor directivo se va",
+  "title_en": "Your Best Manager Quits",
+  "hook_es": "La mitad de quienes dimiten dice que nadie les preguntó por su futuro. Sustituirlos puede costar el doble de su salario.",
+  "hook_en": "Half of those who quit say nobody asked about their future. Replacing them can cost up to twice their salary."
  }
 ]
