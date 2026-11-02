@@ -1142,5 +1142,21 @@
   "title_en": "Your Best Manager Quits",
   "hook_es": "La mitad de quienes dimiten dice que nadie les preguntó por su futuro. Sustituirlos puede costar el doble de su salario.",
   "hook_en": "Half of those who quit say nobody asked about their future. Replacing them can cost up to twice their salary."
+ },
+ {
+  "slug": "non-family-ceo-6-rules-hire-outside-ceo-family-business",
+  "image": "/images/blog/outside-ceo-senior-owner-working-together-office.jpg",
+  "title_es": "Un CEO de fuera",
+  "title_en": "An Outside CEO",
+  "hook_es": "Ford fichó a un externo en 2006 y fue la única de Detroit que evitó la quiebra. El fichaje se acierta; el traspaso, casi nunca.",
+  "hook_en": "Ford hired an outsider in 2006 and was the only Detroit automaker to avoid bankruptcy. Families nail the hire, not the handover."
+ },
+ {
+  "slug": "gray-market-6-rules-stop-parallel-imports-product-diversion",
+  "image": "/images/blog/gray-market-container-port-cranes-parallel-imports.jpg",
+  "title_es": "El mercado gris",
+  "title_en": "The Gray Market",
+  "hook_es": "Si tus precios cambian por país, alguien ya está haciendo las cuentas. Seis reglas para que tu producto no se venda donde no lo enviaste.",
+  "hook_en": "If your prices differ by country, someone is already doing the math. Six rules to stop your product selling where you never shipped it."
  }
 ]
