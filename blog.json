@@ -1158,5 +1158,45 @@
   "title_en": "The Gray Market",
   "hook_es": "Si tus precios cambian por país, alguien ya está haciendo las cuentas. Seis reglas para que tu producto no se venda donde no lo enviaste.",
   "hook_en": "If your prices differ by country, someone is already doing the math. Six rules to stop your product selling where you never shipped it."
+ },
+ {
+  "slug": "transition-services-agreement-6-rules-carve-out-acquisition-tsa",
+  "image": "/images/blog/tsa-carve-out-seller-servers-data-center.jpg",
+  "title_es": "El contrato que leen al final",
+  "title_en": "The Contract Buyers Read Last",
+  "hook_es": "Lenovo compró el negocio de PC de IBM y aun así necesitó a IBM. Al comprar una división, todo depende de lo que pasa cuando el vendedor apaga sus sistemas.",
+  "hook_en": "Lenovo bought IBM's PC business and still needed IBM to run parts of it. Buying a division, the contract that matters most is the one read last."
+ },
+ {
+  "slug": "weekly-leadership-meeting-6-rules-executive-meeting-decisions-not-updates",
+  "image": "/images/blog/weekly-leadership-meeting-boardroom-decisions.jpg",
+  "title_es": "Tu reunión semanal sale cara",
+  "title_en": "Your Weekly Meeting Costs More",
+  "hook_es": "Una sola reunión semanal de dirección acabó generando 300.000 horas de trabajo al año. Si solo lee novedades, pagas ese precio a cambio de nada.",
+  "hook_en": "One weekly executive meeting was traced to 300,000 hours of work a year. If yours mostly reads out updates, you pay that price for nothing."
+ },
+ {
+  "slug": "seasonal-business-6-rules-cash-flow-off-season-planning",
+  "image": "/images/blog/seasonal-business-empty-beach-resort-off-season.jpg",
+  "title_es": "Tu mejor mes paga el peor",
+  "title_en": "Your Best Month Pays the Worst",
+  "hook_es": "La pequeña empresa mediana de EE. UU. tiene caja para unos 27 días y una temporada baja dura meses. Planifica el año desde el valle, no desde el pico.",
+  "hook_en": "The median US small business holds about 27 days of cash, and a slow season lasts months. Plan the year around the trough, not the peak."
+ },
+ {
+  "slug": "family-shareholder-liquidity-6-rules-redemption-program-cousins-want-out",
+  "image": "library/stone-784aa88625.jpg",
+  "title_es": "Tus primos quieren salir",
+  "title_en": "Your Cousins Want Out",
+  "hook_es": "Los Bancroft vendieron el Wall Street Journal. Cargill diseñó una salida y siguió siendo privada. Abre una puerta antes de que fuercen la venta.",
+  "hook_en": "The Bancrofts sold the Wall Street Journal. Cargill designed an exit and stayed private. Give family shareholders a door before they force a sale."
+ },
+ {
+  "slug": "employee-embezzlement-6-rules-prevent-internal-fraud-small-business",
+  "image": "/images/blog/employee-fraud-audit-magnifying-glass-financial-documents.jpg",
+  "title_es": "El desfalco que duró 12 años",
+  "title_en": "The Fraud That Ran 12 Years",
+  "hook_es": "Una vicepresidenta sacó 34 millones de dólares de Koss en 12 años, y una compañía de tarjetas lo vio antes que los auditores. Descúbrelo en meses.",
+  "hook_en": "A vice president took $34 million from Koss over 12 years, and a credit card company noticed before the auditors. Catch it in months, not decades."
  }
 ]
